@@ -1,5 +1,12 @@
 export default defineNuxtConfig({
 
+  /**
+   * Runtime config Supabase (fase cutover F5, standar data terkunci §4):
+   * - public: URL + publishable key — aman sampai ke client (RLS yang mengunci).
+   * - privat (supabaseServiceKey): service key HANYA di server/API route;
+   *   tidak pernah masuk client bundle.
+   */
+
   modules: [
     '@nuxt/ui',
     '@nuxt/fonts',
@@ -40,6 +47,13 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/main.css',
   ],
+  runtimeConfig: {
+    public: {
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseKey: process.env.SUPABASE_KEY,
+    },
+    supabaseServiceKey: process.env.SUPABASE_SERVICE_KEY,
+  },
   compatibilityDate: '2026-11-14',
 
   /**
