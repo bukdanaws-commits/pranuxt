@@ -36,24 +36,24 @@ const STACK_CHIPS = [
 ]
 
 const BRAND_SCALE = [
-  { shade: '50', hex: '#fefce8' },
-  { shade: '100', hex: '#fef9c3' },
-  { shade: '200', hex: '#fef08a' },
-  { shade: '300', hex: '#fde047' },
-  { shade: '400', hex: '#facc15' },
-  { shade: '500', hex: '#eab308' },
-  { shade: '600', hex: '#ca8a04' },
-  { shade: '700', hex: '#a16207' },
-  { shade: '800', hex: '#854d0e' },
-  { shade: '900', hex: '#713f12' },
-  { shade: '950', hex: '#422006' },
+  { shade: '50', hex: '#fffbeb' },
+  { shade: '100', hex: '#fef3c7' },
+  { shade: '200', hex: '#fde68a' },
+  { shade: '300', hex: '#fcd34d' },
+  { shade: '400', hex: '#fbbf24' },
+  { shade: '500', hex: '#f59e0b' },
+  { shade: '600', hex: '#d97706' },
+  { shade: '700', hex: '#b45309' },
+  { shade: '800', hex: '#92400e' },
+  { shade: '900', hex: '#78350f' },
+  { shade: '950', hex: '#451a03' },
 ]
 
 const BASE_COLORS = [
-  { name: 'Brand Yellow', hex: '#FACC15', token: '--pe-brand-yellow' },
-  { name: 'Brand Black', hex: '#171717', token: '--pe-brand-black' },
+  { name: 'Brand Amber', hex: '#F59E0B', token: '--pe-brand-yellow' },
+  { name: 'Brand Black', hex: '#1C1917', token: '--pe-brand-black' },
   { name: 'Surface White', hex: '#FFFFFF', token: 'bg-default' },
-  { name: 'Background', hex: '#F5F5F5', token: '--pe-page-background' },
+  { name: 'Background', hex: '#F5F5F4', token: '--pe-page-background' },
   { name: 'Success', hex: '#16A34A', token: 'color-success' },
   { name: 'Error', hex: '#DC2626', token: 'color-error' },
 ]
@@ -212,8 +212,8 @@ const LAYER_STACK = [
             Design Tokens
           </h2>
           <p class="mt-1 text-sm text-muted">
-            Semua warna mengacu ke token ini (aturan coding no. 8). Brand Yellow #FACC15 dipakai
-            sebagai aksen; teks utama memakai Brand Black agar kontras tetap AA.
+            Semua warna mengacu ke token ini (aturan coding no. 8). Brand Amber #F59E0B dipakai
+            sebagai aksen; teks utama memakai Brand Black (stone-900) agar kontras tetap AA.
           </p>
         </div>
 
@@ -235,7 +235,7 @@ const LAYER_STACK = [
               </div>
             </div>
             <p class="mt-3 text-xs text-muted">
-              brand-400 = #FACC15 (Brand Yellow). Ditetapkan sebagai warna <code>primary</code> di app.config.ts.
+              brand-500 = #F59E0B (Brand Amber, primary utama). Ditetapkan sebagai warna <code>primary</code> di app.config.ts.
             </p>
           </PECard>
 

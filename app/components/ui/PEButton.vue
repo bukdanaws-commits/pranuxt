@@ -43,7 +43,7 @@ const emit = defineEmits<{
 /**
  * Radius 8 px (standar compact) + kontras aksesibilitas:
  * - solid primary: teks hitam di atas kuning brand;
- * - outline/soft/ghost primary: teks brand-700 (#a16207, kontras AA di putih),
+ * - outline/soft/ghost primary: teks brand-700 (#b45309, kontras AA di putih),
  *   bukan brand-500 kuning murni.
  */
 const baseClasses = computed(() => {

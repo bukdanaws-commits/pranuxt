@@ -4,9 +4,14 @@
  * Satu-satunya sumber kebenaran untuk warna, font, spacing, dan radius.
  * Semua komponen wajib mengacu ke token ini (aturan coding no. 8).
  *
- * Sumber palet: keputusan arsitektur bagian 4 — Brand Yellow #FACC15,
- * Brand Black #171717, Surface White #FFFFFF, Background #F5F5F5,
- * Success #16A34A, Error #DC2626.
+ * Sumber palet: keputusan arsitektur bagian 4 (Brand Yellow #FACC15, Brand
+ * Black #171717, Success #16A34A, Error #DC2626) — DIPERBARUI mengikuti
+ * spesifikasi token terbaru dari owner: palet "industrial" berbasis Amber.
+ * - Primary = Amber-500 #F59E0B, on-primary hitam (brand-500).
+ * - Netral hangat = Stone (stone-900 #1C1917 sebagai secondary/surface gelap).
+ * - Info = Sky-600, Warning = Amber-500, Success = Green-600, Danger = Red-600.
+ * Yang diadopsi hanya WARNA (owner: "warnanya saja") — font Plus Jakarta Sans
+ * dan bentuk radius diagonal "daun" TIDAK berubah.
  *
  * BENTUK KOMPONEN (keputusan desain "daun"): seluruh card, button, form,
  * badge, dan elemen kotak memakai radius diagonal — kiri-atas rounded,
@@ -21,18 +26,22 @@
   /* Typography utama — Plus Jakarta Sans (dari @fontsource-variable) */
   --font-sans: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", sans-serif;
 
-  /* Brand Yellow scale — brand-400 adalah warna brand utama #FACC15 */
-  --color-brand-50: #fefce8;
-  --color-brand-100: #fef9c3;
-  --color-brand-200: #fef08a;
-  --color-brand-300: #fde047;
-  --color-brand-400: #facc15;
-  --color-brand-500: #eab308;
-  --color-brand-600: #ca8a04;
-  --color-brand-700: #a16207;
-  --color-brand-800: #854d0e;
-  --color-brand-900: #713f12;
-  --color-brand-950: #422006;
+  /* Brand scale — skala Amber (spesifikasi owner: primary = amber-500).
+     brand-500 #F59E0B = primary utama (dipakai Nuxt UI via --ui-primary);
+     brand-400 #FBBF24 = primary pada konteks gelap sidebar (setara
+     --color-primary-dark spesifikasi). Hue brand == warning (amber),
+     konsekuensi langsung spesifikasi owner (warning = amber-500). */
+  --color-brand-50: #fffbeb;
+  --color-brand-100: #fef3c7;
+  --color-brand-200: #fde68a;
+  --color-brand-300: #fcd34d;
+  --color-brand-400: #fbbf24;
+  --color-brand-500: #f59e0b;
+  --color-brand-600: #d97706;
+  --color-brand-700: #b45309;
+  --color-brand-800: #92400e;
+  --color-brand-900: #78350f;
+  --color-brand-950: #451a03;
 
   /* Token kepatuhan warna aksesibilitas — success #16A34A, error #DC2626 */
   --color-success-50: #f0fdf4;
@@ -74,17 +83,36 @@
   --color-warning-900: #78350f;
   --color-warning-950: #451a03;
 
-  --color-info-50: #eff6ff;
-  --color-info-100: #dbeafe;
-  --color-info-200: #bfdbfe;
-  --color-info-300: #93c5fd;
-  --color-info-400: #60a5fa;
-  --color-info-500: #3b82f6;
-  --color-info-600: #2563eb;
-  --color-info-700: #1d4ed8;
-  --color-info-800: #1e40af;
-  --color-info-900: #1e3a8a;
-  --color-info-950: #172554;
+  /* Info — skala Sky (spesifikasi owner: --color-info = sky-600 #0284C7),
+     menggantikan blue agar tone info lebih terang/kontras di badge gelap. */
+  --color-info-50: #f0f9ff;
+  --color-info-100: #e0f2fe;
+  --color-info-200: #bae6fd;
+  --color-info-300: #7dd3fc;
+  --color-info-400: #38bdf8;
+  --color-info-500: #0ea5e9;
+  --color-info-600: #0284c7;
+  --color-info-700: #0369a1;
+  --color-info-800: #075985;
+  --color-info-900: #0c4a6e;
+  --color-info-950: #082f49;
+
+  /* NETRAL HANGAT — remap skala neutral Tailwind ke nilai Stone (palet owner:
+     stone-900 #1C1917 = --color-secondary, stone-50 = --color-surface).
+     Semua utility neutral-* (kode aplikasi DAN internal Nuxt UI) otomatis
+     menjadi abu-abu hangat tanpa refactor per-komponen — pola remap yang
+     sama dengan skala radius diagonal di bawah. */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f4;
+  --color-neutral-200: #e7e5e4;
+  --color-neutral-300: #d6d3d1;
+  --color-neutral-400: #a8a29e;
+  --color-neutral-500: #78716c;
+  --color-neutral-600: #57534e;
+  --color-neutral-700: #44403c;
+  --color-neutral-800: #292524;
+  --color-neutral-900: #1c1917;
+  --color-neutral-950: #0c0a09;
 
   /* SKALA RADIUS DIAGONAL — "bentuk daun" PEKERJA EVENT.
      Urutan nilai border-radius: kiri-atas, kanan-atas, kanan-bawah, kiri-bawah.
@@ -106,10 +134,11 @@
 
   /* Token khusus PEKERJA EVENT */
   --pe-header-height: 4rem;
-  --pe-page-background: #f5f5f5;
+  --pe-page-background: #f5f5f4;
   --pe-sidebar-width: 16rem;
 
-  /* Warna dasar identitas — brand black dipakai untuk teks utama */
-  --pe-brand-yellow: #facc15;
-  --pe-brand-black: #171717;
+  /* Warna dasar identitas — amber primary + stone-900 (spesifikasi owner:
+     --color-primary amber-500, --color-secondary stone-900) */
+  --pe-brand-yellow: #f59e0b;
+  --pe-brand-black: #1c1917;
 }

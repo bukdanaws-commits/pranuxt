@@ -14,7 +14,8 @@ export default defineAppConfig({
       warning: 'warning',
       error: 'error',
       info: 'info',
-      neutral: 'zinc',
+      // Netral hangat: mengikuti palet owner (stone), bukan zinc dingin.
+      neutral: 'stone',
     },
 
     button: {
