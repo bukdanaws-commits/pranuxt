@@ -47,7 +47,7 @@ const moreItems = [
 </script>
 
 <template>
-  <div class="overflow-hidden rounded-xl border border-default bg-default shadow-none">
+  <div class="overflow-hidden rounded-xl border border-default bg-default shadow-[0_4px_20px_rgba(0,0,0,0.05)] transition-colors hover:border-brand-300 hover:bg-brand-100/40">
     <div class="flex flex-col sm:flex-row">
       <!-- Banner -->
       <div class="h-40 w-full shrink-0 sm:h-auto sm:w-44">
@@ -204,7 +204,7 @@ const moreItems = [
                 icon="i-lucide-lock"
                 size="sm"
                 block
-                to="/worker/paspor-kompetensi"
+                to="/worker/paspor"
               />
               <PEButton
                 label="Lihat Detail"

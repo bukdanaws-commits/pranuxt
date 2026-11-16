@@ -10,5 +10,5 @@
 body {
   font-family: var(--font-sans);
   background: var(--pe-page-background);
-  color: var(--color-neutral-900);
+  color: var(--color-neutral-800);
 }

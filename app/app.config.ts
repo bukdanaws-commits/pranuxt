@@ -27,7 +27,7 @@ export default defineAppConfig({
 
     card: {
       slots: {
-        root: 'rounded-xl border border-default shadow-none',
+        root: 'rounded-xl border border-default shadow-[0_4px_20px_rgba(0,0,0,0.05)]',
         // Desain kompak: padding default card (p-4 sm:p-6) dirapatkan ke 14/12 px.
         // Suffix "!" penting karena ui config digabung (concatenation) dengan
         // tema default tv() — important memenangkan cascade di semua breakpoint.

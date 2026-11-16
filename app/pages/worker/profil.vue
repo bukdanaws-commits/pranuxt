@@ -50,7 +50,7 @@ function onEditProfile() {
 const kycMeta = computed(() => KYC_STATUS_META[profile.value.kycStatus])
 
 const breadcrumbItems = [
-  { label: 'Beranda', icon: 'i-lucide-home', to: '/worker/dashboard' },
+  { label: 'Beranda', icon: 'i-lucide-home', to: '/worker' },
   { label: 'Profil', to: '/worker/profil' },
 ]
 </script>
@@ -60,9 +60,12 @@ const breadcrumbItems = [
     <div class="space-y-2">
       <AppBreadcrumb :items="breadcrumbItems" />
       <div>
-        <h1 class="text-2xl font-extrabold tracking-tight text-highlighted">
+        <h1 class="sr-only">
           Profil Saya
         </h1>
+        <h2 class="text-xl font-bold tracking-tight text-neutral-800">
+          Profil Saya
+        </h2>
         <p class="mt-0.5 text-sm text-muted">
           Data diri, verifikasi identitas (KYC), dan kompetensi yang dipakai pencocokan lowongan.
         </p>

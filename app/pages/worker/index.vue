@@ -38,24 +38,49 @@ const stats = computed(() => [
     value: dashboardStats.value.activeAssignments,
     description: 'Perlu konfirmasi / berlangsung',
     icon: 'i-lucide-clipboard-list',
+    // Gradien & skema teks persis referensi produksi: kartu amber
+    // memakai teks hitam pekat (label black/80, desc black/70).
+    cardClass: 'bg-gradient-to-br from-brand-500 to-brand-600',
+    labelClass: 'text-black/80',
+    valueClass: 'text-black',
+    descClass: 'text-black/70',
+    chipClass: 'bg-black/15 text-black',
   },
   {
     label: 'Lamaran aktif',
     value: dashboardStats.value.activeApplications,
     description: 'Terkirim / diterima',
     icon: 'i-lucide-file-text',
+    cardClass: 'bg-gradient-to-br from-brand-300 to-brand-500',
+    labelClass: 'text-black/80',
+    valueClass: 'text-black',
+    descClass: 'text-black/70',
+    chipClass: 'bg-black/15 text-black',
   },
   {
     label: 'Selesai',
     value: dashboardStats.value.completedAssignments,
     description: 'Riwayat pekerjaan selesai',
     icon: 'i-lucide-circle-check-big',
+    // Success = Green (token brand §aksesibilitas #16A34A).
+    cardClass: 'bg-gradient-to-br from-success-500 to-success-600',
+    labelClass: 'text-black/80',
+    valueClass: 'text-black',
+    descClass: 'text-black/70',
+    chipClass: 'bg-white/20 text-white',
   },
   {
     label: 'Belum dibaca',
     value: dashboardStats.value.unreadNotifications,
     description: 'Notifikasi menanti',
     icon: 'i-lucide-bell',
+    // Kartu gelap stone-800→900 — satu-satunya kartu ber teks putih,
+    // persis referensi produksi.
+    cardClass: 'bg-gradient-to-br from-neutral-800 to-neutral-900',
+    labelClass: 'text-white/90',
+    valueClass: 'text-white',
+    descClass: 'text-white/70',
+    chipClass: 'bg-white/20 text-white',
   },
 ])
 
@@ -80,47 +105,71 @@ function notifIcon(type: string): string {
 <template>
   <div class="space-y-4">
     <!-- Sapaan -->
-    <div>
-      <h1 class="text-2xl font-extrabold tracking-tight text-highlighted">
-        Halo, {{ firstName }} 👋
+    <div class="pe-fade-up">
+      <h1 class="sr-only">
+        Ringkasan
       </h1>
+      <h2 class="text-2xl font-extrabold tracking-tight text-highlighted">
+        Halo, {{ firstName }} 👋
+      </h2>
       <p class="mt-1 text-sm text-muted">
         Ringkasan aktivitas pekerjaan event Anda.
       </p>
     </div>
 
-    <!-- Statistik -->
-    <div class="grid gap-2.5 sm:grid-cols-2 xl:grid-cols-4">
+    <!-- Statistik — gradien persis referensi (amber, amber, green, stone gelap)
+         dengan chip ikon translusen di kanan (vertikal tengah). -->
+    <div class="grid gap-2.5 pe-fade-up pe-fade-up-1 sm:grid-cols-2 xl:grid-cols-4">
       <div
         v-for="stat in stats"
         :key="stat.label"
-        class="rounded-xl border border-default bg-default p-3.5 shadow-none"
+        class="rounded-xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.05)]"
+        :class="stat.cardClass"
       >
-        <div class="flex items-center gap-2.5">
-          <span class="flex size-8 items-center justify-center rounded-lg bg-brand-100 text-neutral-900">
+        <div class="flex items-center justify-between gap-2.5">
+          <div class="min-w-0">
+            <p
+              class="text-sm font-medium"
+              :class="stat.labelClass"
+            >
+              {{ stat.label }}
+            </p>
+            <p
+              class="mt-1.5 text-3xl font-extrabold tracking-tight"
+              :class="stat.valueClass"
+            >
+              {{ stat.value }}
+            </p>
+            <p
+              class="mt-0.5 text-xs"
+              :class="stat.descClass"
+            >
+              {{ stat.description }}
+            </p>
+          </div>
+          <span
+            class="flex size-9 shrink-0 items-center justify-center rounded-lg"
+            :class="stat.chipClass"
+          >
             <UIcon
               :name="stat.icon"
               class="size-4"
             />
           </span>
-          <p class="text-sm font-medium text-muted">
-            {{ stat.label }}
-          </p>
         </div>
-        <p class="mt-2 text-2xl font-extrabold tracking-tight text-highlighted">
-          {{ stat.value }}
-        </p>
-        <p class="mt-0.5 text-xs text-dimmed">
-          {{ stat.description }}
-        </p>
       </div>
     </div>
 
-    <!-- Penugasan terdekat -->
-    <PECard title="Penugasan terdekat">
+    <!-- Penugasan terdekat — heading H3 terpisah (persis referensi), konten
+         empty state dalam kartu putih ber-shadow. -->
+    <section class="space-y-3 pe-fade-up pe-fade-up-2">
+      <h3 class="text-base font-semibold text-neutral-800">
+        Penugasan terdekat
+      </h3>
+
       <div
         v-if="nearestAssignment"
-        class="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-default bg-elevated p-3"
+        class="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-default bg-default p-3 shadow-[0_4px_20px_rgba(0,0,0,0.05)]"
       >
         <div class="min-w-0">
           <p class="text-sm font-bold text-highlighted">
@@ -139,16 +188,16 @@ function notifIcon(type: string): string {
 
       <div
         v-else
-        class="flex flex-col items-center gap-2 py-5 text-center"
+        class="flex flex-col items-center gap-3 rounded-xl border border-default bg-default py-8 text-center shadow-[0_4px_20px_rgba(0,0,0,0.05)]"
       >
-        <span class="flex size-10 items-center justify-center rounded-2xl bg-brand-100 text-neutral-900">
+        <span class="flex size-12 items-center justify-center rounded-full bg-brand-100 text-brand-600">
           <UIcon
-            name="i-lucide-calendar-x"
-            class="size-5"
+            name="i-lucide-briefcase"
+            class="size-6"
           />
         </span>
         <div class="space-y-1">
-          <p class="text-sm font-bold text-highlighted">
+          <p class="text-base font-bold text-highlighted">
             Belum ada penugasan aktif
           </p>
           <p class="mx-auto max-w-sm text-sm text-muted">
@@ -162,17 +211,17 @@ function notifIcon(type: string): string {
           to="/worker/lowongan"
         />
       </div>
-    </PECard>
+    </section>
 
     <!-- Lowongan untuk Anda -->
-    <section class="space-y-4">
+    <section class="space-y-4 pe-fade-up pe-fade-up-3">
       <div class="flex items-center justify-between gap-3">
-        <h2 class="text-lg font-bold text-highlighted">
+        <h3 class="text-base font-semibold text-neutral-800">
           Lowongan untuk Anda
-        </h2>
+        </h3>
         <NuxtLink
           to="/worker/lowongan"
-          class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:underline"
+          class="inline-flex items-center gap-1 text-sm font-semibold text-brand-600 hover:underline"
         >
           Lihat semua
           <UIcon
@@ -194,17 +243,17 @@ function notifIcon(type: string): string {
     </section>
 
     <!-- Notifikasi terbaru -->
-    <section class="space-y-4">
-      <h2 class="text-lg font-bold text-highlighted">
+    <section class="space-y-4 pe-fade-up pe-fade-up-3">
+      <h3 class="text-base font-semibold text-neutral-800">
         Notifikasi terbaru
-      </h2>
+      </h3>
 
       <div class="flex flex-col gap-2">
         <NuxtLink
           v-for="item in latestNotifications"
           :key="item.id"
           to="/worker/notifikasi"
-          class="flex items-start gap-2.5 rounded-xl border border-default bg-default p-3 shadow-none transition-colors hover:bg-elevated"
+          class="flex items-start gap-2.5 rounded-xl border border-default bg-default p-3 shadow-[0_4px_20px_rgba(0,0,0,0.05)] transition-colors hover:bg-brand-100/40"
         >
           <span class="flex size-8 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-neutral-900">
             <UIcon

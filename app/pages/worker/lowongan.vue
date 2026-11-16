@@ -111,7 +111,7 @@ function resetFilters() {
 }
 
 const breadcrumbItems = [
-  { label: 'Beranda', icon: 'i-lucide-home', to: '/worker/dashboard' },
+  { label: 'Beranda', icon: 'i-lucide-home', to: '/worker' },
   { label: 'Lowongan', to: '/worker/lowongan' },
 ]
 </script>
@@ -121,9 +121,12 @@ const breadcrumbItems = [
     <div class="space-y-2">
       <AppBreadcrumb :items="breadcrumbItems" />
       <div>
-        <h1 class="text-2xl font-extrabold tracking-tight text-highlighted">
+        <h1 class="sr-only">
           Cari Lowongan
         </h1>
+        <h2 class="text-xl font-bold tracking-tight text-neutral-800">
+          Cari Lowongan
+        </h2>
         <p class="mt-0.5 text-sm text-muted">
           {{ filteredJobs.length }} dari {{ jobs.length }} lowongan · filter tervalidasi jobFilterSchema
         </p>

@@ -1,9 +1,21 @@
-<template>
-  <div class="pe-page min-h-screen">
-    <AppTopbar role="eo" />
+<script setup lang="ts">
+/**
+ * Layout EO — memakai AppDashboardShell (sidebar gelap + topbar h-14) dengan
+ * menu Event Organizer. Persis sistem yang sama dengan dashboard Worker.
+ */
+import { EO_NAVIGATION } from '#shared/constants/navigation'
 
-    <main class="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6">
-      <slot />
-    </main>
-  </div>
+const sections = [{ label: 'Utama', items: EO_NAVIGATION }]
+</script>
+
+<template>
+  <AppDashboardShell
+    role="eo"
+    :sections="sections"
+    nav-label="Menu Event Organizer"
+    storage-key="pe-eo-sidebar-collapsed"
+    title-fallback="PEKERJA EVENT"
+  >
+    <slot />
+  </AppDashboardShell>
 </template>

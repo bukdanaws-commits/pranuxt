@@ -30,7 +30,8 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'PEKERJA EVENT',
+      // Judul tab konstan di semua halaman — persis referensi produksi.
+      titleTemplate: 'PEKERJA EVENT — Platform Pelatihan & Marketplace Pekerjaan Event',
       htmlAttrs: {
         lang: 'id',
       },

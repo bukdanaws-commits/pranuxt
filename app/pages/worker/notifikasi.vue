@@ -44,9 +44,12 @@ function onMarkAll() {
   <div class="space-y-4">
     <div class="flex flex-wrap items-end justify-between gap-3">
       <div>
-        <h1 class="text-2xl font-extrabold tracking-tight text-highlighted">
+        <h1 class="sr-only">
           Notifikasi
         </h1>
+        <h2 class="text-xl font-bold tracking-tight text-neutral-800">
+          Notifikasi
+        </h2>
         <p class="mt-0.5 text-sm text-muted">
           {{ unreadCount > 0 ? `${unreadCount} notifikasi belum dibaca.` : 'Semua notifikasi sudah dibaca.' }}
         </p>

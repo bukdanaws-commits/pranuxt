@@ -1,9 +1,22 @@
-<template>
-  <div class="pe-page min-h-screen">
-    <AppTopbar role="instructor" />
+<script setup lang="ts">
+/**
+ * Layout Instruktur — memakai AppDashboardShell (sidebar gelap + topbar
+ * h-14) dengan menu Instruktur. Persis sistem yang sama dengan dashboard
+ * Worker.
+ */
+import { INSTRUCTOR_NAVIGATION } from '#shared/constants/navigation'
 
-    <main class="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6">
-      <slot />
-    </main>
-  </div>
+const sections = [{ label: 'Utama', items: INSTRUCTOR_NAVIGATION }]
+</script>
+
+<template>
+  <AppDashboardShell
+    role="instructor"
+    :sections="sections"
+    nav-label="Menu Instruktur"
+    storage-key="pe-instructor-sidebar-collapsed"
+    title-fallback="PEKERJA EVENT"
+  >
+    <slot />
+  </AppDashboardShell>
 </template>

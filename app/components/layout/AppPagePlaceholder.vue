@@ -41,9 +41,12 @@ withDefaults(defineProps<Props>(), {
         </span>
 
         <div class="space-y-1.5">
-          <h1 class="text-xl font-extrabold tracking-tight text-highlighted">
+          <h1 class="sr-only">
             {{ title }}
           </h1>
+          <h2 class="text-xl font-bold tracking-tight text-neutral-800">
+            {{ title }}
+          </h2>
           <p class="mx-auto max-w-md text-sm text-muted">
             {{ description }}
           </p>
@@ -62,7 +65,7 @@ withDefaults(defineProps<Props>(), {
           variant="outline"
           size="sm"
           icon="i-lucide-arrow-left"
-          to="/worker/dashboard"
+          to="/worker"
         />
       </div>
     </PECard>

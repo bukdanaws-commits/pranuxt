@@ -157,8 +157,8 @@ const LAYER_STACK = [
 
 <template>
   <div>
-    <!-- ===== HERO ===== -->
-    <section class="pe-hero text-white">
+    <!-- ===== HERO (light theme — hanya sidebar yang gelap) ===== -->
+    <section class="pe-hero text-neutral-900">
       <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
         <UBadge
           label="UI Component Library v1 · Tahap 1 Foundation & Design System"
@@ -169,7 +169,7 @@ const LAYER_STACK = [
         <h1 class="mt-6 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
           PEKERJA <span class="pe-text-brand">EVENT</span>
         </h1>
-        <p class="mt-4 max-w-2xl text-base text-neutral-300 sm:text-lg">
+        <p class="mt-4 max-w-2xl text-base text-neutral-600 sm:text-lg">
           Satu fondasi desain untuk empat dashboard — Worker, EO, Admin, dan Instruktur.
           Seluruh tampilan dan komponen bisnis dikendalikan kode proyek sendiri di atas Nuxt UI v4.
         </p>
@@ -178,7 +178,7 @@ const LAYER_STACK = [
           <span
             v-for="chip in STACK_CHIPS"
             :key="chip"
-            class="rounded-lg border border-neutral-700 px-3 py-1 text-xs font-medium text-neutral-300"
+            class="rounded-lg border border-neutral-200 px-3 py-1 text-xs font-medium text-neutral-600"
           >
             {{ chip }}
           </span>
@@ -187,7 +187,7 @@ const LAYER_STACK = [
         <div class="mt-8 flex flex-wrap gap-3">
           <PEButton
             label="Buka Dashboard Worker Demo"
-            to="/worker/dashboard"
+            to="/worker"
             icon="i-lucide-layout-dashboard"
             trailing-icon="i-lucide-arrow-right"
           />
@@ -594,10 +594,10 @@ const LAYER_STACK = [
     </div>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="pe-hero text-neutral-400">
+    <footer class="border-t border-default text-neutral-600">
       <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-3 px-4 py-8 text-sm sm:flex-row sm:items-center sm:px-6">
         <p>
-          <span class="font-bold text-white">PEKERJA EVENT</span> — UI Component Library v1
+          <span class="font-bold text-neutral-900">PEKERJA EVENT</span> — UI Component Library v1
         </p>
         <p class="text-xs">
           Berikutnya: Tahap 2 Layout System → Tahap 3 Worker Dashboard.

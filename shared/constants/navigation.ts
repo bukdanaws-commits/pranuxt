@@ -11,18 +11,17 @@ import type { RoleCode } from '#shared/constants/enums'
 
 /**
  * Sidebar worker (desain dashboard v2) — menu bergrup: Utama, Penghasilan,
- * Kompetensi, Akun. Item "Notifikasi" membawa badge jumlah belum dibaca,
- * item "Verifikasi" membawa chip status terverifikasi profil.
+ * Kompetensi, Akun — mengikuti referensi produksi (Notifikasi hanya di
+ * lonceng topbar, tanpa item menu). Item "Verifikasi" membawa chip status.
  */
 export const WORKER_NAV_SECTIONS: PENavSection[] = [
   {
     label: 'Utama',
     items: [
-      { label: 'Ringkasan', to: '/worker/dashboard', icon: 'i-lucide-layout-dashboard' },
+      { label: 'Ringkasan', to: '/worker', icon: 'i-lucide-layout-dashboard' },
       { label: 'Cari Lowongan', to: '/worker/lowongan', icon: 'i-lucide-search' },
       { label: 'Lamaran Saya', to: '/worker/lamaran', icon: 'i-lucide-file-text' },
       { label: 'Penugasan Saya', to: '/worker/penugasan', icon: 'i-lucide-clipboard-list' },
-      { label: 'Notifikasi', to: '/worker/notifikasi', icon: 'i-lucide-bell', badge: 'unread' },
     ],
   },
   {
@@ -35,7 +34,7 @@ export const WORKER_NAV_SECTIONS: PENavSection[] = [
   {
     label: 'Kompetensi',
     items: [
-      { label: 'Paspor Kompetensi', to: '/worker/paspor-kompetensi', icon: 'i-lucide-id-card' },
+      { label: 'Paspor Kompetensi', to: '/worker/paspor', icon: 'i-lucide-id-card' },
       { label: 'Sertifikat Saya', to: '/worker/sertifikat', icon: 'i-lucide-award' },
       { label: 'Pelatihan', to: '/worker/pelatihan', icon: 'i-lucide-graduation-cap' },
     ],
@@ -86,7 +85,7 @@ export const DASHBOARD_ROLES = ['worker', 'eo', 'admin', 'instructor'] as const
 export type DashboardRole = (typeof DASHBOARD_ROLES)[number]
 
 export const DASHBOARD_ROUTE_BY_ROLE: Record<DashboardRole, string> = {
-  worker: '/worker/dashboard',
+  worker: '/worker',
   eo: '/eo/dashboard',
   admin: '/admin/dashboard',
   instructor: '/instructor/dashboard',

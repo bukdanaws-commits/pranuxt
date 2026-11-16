@@ -35,9 +35,9 @@
   background: var(--pe-page-background);
 }
 
-/* Bagian hero gelap — brand black dari token, bukan warna mentah */
+/* Bagian hero/footer — putih sesuai prinsip light theme (hanya sidebar gelap) */
 .pe-hero {
-  background: var(--pe-brand-black);
+  background: #ffffff;
 }
 
 /* Aksen tipografi kuning brand pada teks highlight */
@@ -49,3 +49,23 @@
   background: var(--color-brand-300);
   color: var(--color-neutral-900);
 }
+
+/* Animasi entrance konten (persis referensi: animate-fade-in-up + delay) */
+@keyframes pe-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pe-fade-up {
+  animation: pe-fade-in-up 0.45s ease-out both;
+}
+
+.pe-fade-up-1 { animation-delay: 0.05s; }
+.pe-fade-up-2 { animation-delay: 0.15s; }
+.pe-fade-up-3 { animation-delay: 0.25s; }

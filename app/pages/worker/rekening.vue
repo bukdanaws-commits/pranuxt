@@ -5,7 +5,7 @@ useHead({ title: 'Rekening Pencairan — PEKERJA EVENT' })
 
 <template>
   <AppPagePlaceholder
-    title="Rekening Pencairan"
+    title="Rekening & Pembayaran"
     description="Kelola rekening bank untuk pencairan upah — penambahan rekening, verifikasi nama pemilik, dan pemilihan rekening utama."
     phase="Dibangun pada Tahap 4 — Modul Worker"
     icon="i-lucide-landmark"
