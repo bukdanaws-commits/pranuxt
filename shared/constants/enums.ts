@@ -31,6 +31,23 @@ export const ACTIVE_ASSIGNMENT_STATUSES: readonly AssignmentStatus[] = ['PENDING
 export const JOB_MECHANISM = ['APPLICATION', 'DIRECT'] as const
 export type JobMechanism = (typeof JOB_MECHANISM)[number]
 
+/** Kategori lowongan — cermin CHECK job_posts.category (DB nyata). */
+export const JOB_CATEGORIES = [
+  'FOTOGRAFER_VIDEO',
+  'CREW_LOGISTIK',
+  'MC_HOST',
+  'TEKNISI_AV',
+  'REGISTRASI',
+  'FNB',
+  'SECURITY',
+  'LAINNYA',
+] as const
+export type JobCategory = (typeof JOB_CATEGORIES)[number]
+
+/** Sumber klaim kompetensi — cermin CHECK worker_skills.source (DB nyata). */
+export const SKILL_SOURCES = ['SELF', 'ASSESSMENT', 'CERTIFICATE'] as const
+export type SkillSource = (typeof SKILL_SOURCES)[number]
+
 export const SKILL_STATUS = ['CLAIMED', 'VERIFIED', 'REVOKED'] as const
 export type SkillStatus = (typeof SKILL_STATUS)[number]
 

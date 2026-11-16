@@ -53,6 +53,8 @@ export default defineNuxtConfig({
       supabaseKey: process.env.SUPABASE_KEY,
     },
     supabaseServiceKey: process.env.SUPABASE_SERVICE_KEY,
+    // Sumber data provider (standar data §4): 'supabase' | 'mock'.
+    dataProvider: process.env.DATA_PROVIDER ?? 'supabase',
   },
   compatibilityDate: '2026-11-14',
 

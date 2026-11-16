@@ -37,6 +37,7 @@ export function mapJobPostRow(
   eo: EoProfileRow | undefined,
   primaryCompetency: string | null = null,
   eligible = false,
+  filledCount = 0,
 ): JobPostDto {
   return {
     id: row.id,
@@ -49,12 +50,14 @@ export function mapJobPostRow(
     endTime: row.end_time ? row.end_time.slice(0, 5) : null,
     primaryCompetency,
     eligible,
-    cityId: row.city_id,
+    cityId: row.city_id ?? '',
     cityName: city?.name ?? 'Kota tidak dikenal',
     wage: row.wage,
     durationDays: row.duration_days,
     slotCount: row.slot_count,
-    filledCount: row.filled_count,
+    // DB nyata tidak punya kolom filled_count — dihitung dari job_assignments
+    // (status CONFIRMED/IN_PROGRESS/COMPLETED) di lapisan provider.
+    filledCount,
     mechanism: row.mechanism,
     status: row.status,
   }
@@ -68,13 +71,13 @@ export function mapWorkerProfile(
 ): WorkerProfileDto {
   return {
     id: profile.id,
-    fullName: workerProfile.full_name || profile.name,
+    fullName: profile.name,
     email: profile.email,
-    phone: workerProfile.phone_number,
+    phone: profile.phone,
     cityId: workerProfile.city_id ?? null,
     cityName: city?.name ?? null,
     bio: workerProfile.bio,
-    photoPath: workerProfile.photo_path,
+    photoPath: profile.photo_url,
     isVerified: workerProfile.is_verified,
     kycStatus: profile.kyc_status,
     accountStatus: profile.status,
@@ -114,7 +117,7 @@ export function mapJobAssignment(
     cityName: city?.name ?? 'Kota tidak dikenal',
     eventDate: job?.event_date ?? '',
     status: row.status,
-    appliedVia: job?.mechanism ?? 'APPLICATION',
+    appliedVia: row.applied_via,
   }
 }
 
@@ -125,7 +128,7 @@ export function mapWorkerSkill(
   return {
     id: row.id,
     name: competency?.name ?? 'Kompetensi tidak dikenal',
-    category: competency?.category ?? 'Lainnya',
+    code: competency?.code ?? '-',
     status: row.status,
   }
 }

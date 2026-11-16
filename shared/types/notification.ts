@@ -10,6 +10,10 @@ export interface NotificationRow {
   body: string
   /** Kode jenis notifikasi UPPERCASE, mis. APPLICATION_ACCEPTED, KYC_APPROVED. */
   type: string
+  /** Tautan dalam aplikasi (mis. /worker/lamaran) — nullable. */
+  link: string | null
+  /** jsonb disimpan TEXT, default '["IN_APP"]' (DB nyata). */
+  channels: string
   is_read: boolean
   created_at: string
 }

@@ -39,7 +39,7 @@ defineProps<{
               {{ skill.name }}
             </p>
             <p class="text-xs text-muted">
-              {{ skill.category }}
+              {{ skill.code }}
             </p>
           </div>
         </div>
