@@ -51,4 +51,13 @@ export const notificationRows: NotificationRow[] = [
     is_read: true,
     created_at: '2026-11-06T09:10:00+07:00',
   },
+  {
+    id: 'b7c8d9e0-f1a2-4b8d-a7af-9c0d1e2f3a5f',
+    user_id: WORKER,
+    title: 'Lowongan baru cocok untuk Anda',
+    body: 'Liaison Officer — Bali Wedding Expo 2026 dibuka di Denpasar. Kompetensi hospitality Anda cocok.',
+    type: 'JOB_RECOMMENDATION',
+    is_read: false,
+    created_at: '2026-11-16T08:30:00+07:00',
+  },
 ]

@@ -40,7 +40,9 @@ shared/
   types/             kontrak Row (snake_case, bentuk baris Supabase) + DTO (camelCase)
   constants/         enums.ts · status-meta.ts · transitions.ts · navigation.ts
   schemas/           zod: worker.schema.ts · job-filter.schema.ts
-  mock/              seed berbentuk baris Supabase + mapper → DTO
+  mock/              seed Supabase-ready + mapper → DTO — 10 lowongan demo
+                     di 6 kota & 4 EO, 6 lamaran (semua status), penugasan,
+                     notifikasi, kompetensi worker
 ```
 
 ## Aturan utama
@@ -70,7 +72,7 @@ bun run typecheck  # vue-tsc
 
 - `/` — showcase component library: design tokens, semua komponen Layer 3 & Layer 4, arsitektur lapisan.
 - `/worker/dashboard` — overview worker: profil, rekomendasi lowongan, lamaran terbaru, kompetensi.
-- `/worker/lowongan` — daftar lowongan lengkap: filter tervalidasi `jobFilterSchema` (kata kunci, kota, mekanisme, upah minimal), status & urutan, detail modal, alur lamar.
+- `/worker/lowongan` — daftar lowongan lengkap (10 loker demo): filter tervalidasi `jobFilterSchema` (kata kunci, kota, mekanisme, upah minimal), status & urutan, detail modal, alur lamar.
 - `/worker/lamaran` — ringkasan lamaran per status + filter + tarik lamaran (guard transisi).
 - `/worker/profil` — data diri (form `workerProfileSchema`), status KYC, kompetensi.
 - `/eo/*`, `/admin/*`, `/instructor/*` — kerangka modul (placeholder) menuju Tahap 4–5;

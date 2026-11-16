@@ -8,10 +8,13 @@ const JAKSEL = '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 const JAKPUS = 'f47ac10b-58cc-4372-a567-0e02b2c3d479'
 const BANDUNG = '550e8400-e29b-41d4-a716-446655440000'
 const SURABAYA = '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+const YOGYAKARTA = 'c232b1c5-9e2b-4a54-8f3a-71d0b45c9e12'
+const DENPASAR = 'e8b6c7d9-1a2b-4c3d-9e4f-5a6b7c8d9e0f'
 
 const EO_JAKARTA = 'a2b3c4d5-e6f7-4809-9a1b-2c3d4e5f6071'
 const JAVA_PRODUCTION = 'b3c4d5e6-f7a8-491a-9b2c-4d5e6f708192'
 const SURABAYA_LIVE = 'c4d5e6f7-a8b9-4a2b-8c3d-6f7081929ba3'
+const BALI_PRESTASI = 'd6e7f8a9-c0d1-4b3e-9c4d-81929ba3c5d7'
 
 export const jobPostRows: JobPostRow[] = [
   {
@@ -81,6 +84,74 @@ export const jobPostRows: JobPostRow[] = [
     status: 'OPEN',
     created_at: '2026-11-08T09:00:00+07:00',
     updated_at: '2026-11-11T09:00:00+07:00',
+  },
+  {
+    id: '6a7b8c9d-0e1f-4a2b-8c3d-4e5f6a7b8c9d',
+    eo_id: EO_JAKARTA,
+    title: 'Ticketing Officer — Jakarta Music Week',
+    description: 'Mengelola gerbang tiket, memindai QR penonton, dan menangani isu tiket saat pintu dibuka.',
+    event_name: 'Jakarta Music Week 2026',
+    event_date: '2026-12-01',
+    city_id: JAKSEL,
+    wage: 500000,
+    duration_days: 1,
+    slot_count: 6,
+    filled_count: 1,
+    mechanism: 'APPLICATION',
+    status: 'OPEN',
+    created_at: '2026-11-12T10:30:00+07:00',
+    updated_at: '2026-11-14T10:30:00+07:00',
+  },
+  {
+    id: '7b8c9d0e-1f2a-4b3c-9d4e-5f6a7b8c9d0e',
+    eo_id: JAVA_PRODUCTION,
+    title: 'Stage Crew — Yogyakarta Art Festival',
+    description: 'Perakitan panggung, penataan backline, dan bongkar pasang selama festival seni berlangsung.',
+    event_name: 'Yogyakarta Art Festival',
+    event_date: '2026-12-06',
+    city_id: YOGYAKARTA,
+    wage: 475000,
+    duration_days: 2,
+    slot_count: 10,
+    filled_count: 3,
+    mechanism: 'APPLICATION',
+    status: 'OPEN',
+    created_at: '2026-11-13T08:15:00+07:00',
+    updated_at: '2026-11-15T08:15:00+07:00',
+  },
+  {
+    id: '8c9d0e1f-2a3b-4c4d-8e5f-6a7b8c9d0e1f',
+    eo_id: BALI_PRESTASI,
+    title: 'Liaison Officer — Bali Wedding Expo',
+    description: 'Penghubung tim EO dengan vendor expo; memastikan jadwal dan kebutuhan booth vendor terpenuhi.',
+    event_name: 'Bali Wedding Expo 2026',
+    event_date: '2026-12-13',
+    city_id: DENPASAR,
+    wage: 650000,
+    duration_days: 2,
+    slot_count: 4,
+    filled_count: 0,
+    mechanism: 'APPLICATION',
+    status: 'OPEN',
+    created_at: '2026-11-14T09:45:00+07:00',
+    updated_at: '2026-11-15T09:45:00+07:00',
+  },
+  {
+    id: '9d0e1f2a-3b4c-4d5e-9f6a-7b8c9d0e1f2a',
+    eo_id: EO_JAKARTA,
+    title: 'Registration Desk — National Healthcare Summit',
+    description: 'Penunjukan langsung untuk peserta yang sudah pernah bekerja pada event EO Jakarta sebelumnya.',
+    event_name: 'National Healthcare Summit 2026',
+    event_date: '2026-11-30',
+    city_id: JAKPUS,
+    wage: 525000,
+    duration_days: 1,
+    slot_count: 3,
+    filled_count: 2,
+    mechanism: 'DIRECT',
+    status: 'OPEN',
+    created_at: '2026-11-13T11:20:00+07:00',
+    updated_at: '2026-11-14T11:20:00+07:00',
   },
   {
     id: '4d5e6f7a-8b9c-4d1e-9f2a-3b4c5d6e7f8a',

@@ -28,4 +28,12 @@ export const eoProfileRows: EoProfileRow[] = [
     created_at: '2026-09-15T09:00:00+07:00',
     updated_at: '2026-10-20T09:00:00+07:00',
   },
+  {
+    id: 'd6e7f8a9-c0d1-4b3e-9c4d-81929ba3c5d7',
+    user_id: '44d5e6f7-a8b9-490a-8c2d-6f7081929ca4',
+    org_name: 'Bali Prestasi Event',
+    is_verified: true,
+    created_at: '2026-08-20T09:00:00+07:00',
+    updated_at: '2026-11-05T09:00:00+07:00',
+  },
 ]
