@@ -20,13 +20,12 @@ import type {
   JobAssignmentRow,
   JobPostRow,
   JobRequirementRow,
-  NotificationRow,
   ProfileRow,
   WorkerProfileRow,
   WorkerSkillRow,
   WorkerSnapshot,
 } from '#shared/types/worker'
-import type { NotificationDto } from '#shared/types/notification'
+import type { NotificationDto, NotificationRow } from '#shared/types/notification'
 import {
   countCompletedAssignments,
   mapCityRows,

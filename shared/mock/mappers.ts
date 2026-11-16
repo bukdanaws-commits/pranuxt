@@ -27,8 +27,17 @@ export function mapCityRows(rows: CityRow[]): Record<string, CityRow> {
   return Object.fromEntries(rows.map(row => [row.id, row]))
 }
 
+/**
+ * Join key EO = user_id (id profile akun EO di profiles), BUKAN id baris
+ * eo_profiles. Skema DB terkunci menjadikan semua FK eo_id menunjuk
+ * profiles(id) — job_posts_eo_id_fkey, rfqs_eo_id_fkey,
+ * event_payment_orders_eo_id_fkey, event_fee_invoices_eo_id_fkey,
+ * purchase_orders_eo_id_fkey, commission_invoices_eo_id_fkey — dan nol
+ * referensi ke eo_profiles(id). Konsisten dengan aturan §3 peta entitas:
+ * FK identitas menunjuk profiles.id.
+ */
 export function mapEoProfileRows(rows: EoProfileRow[]): Record<string, EoProfileRow> {
-  return Object.fromEntries(rows.map(row => [row.id, row]))
+  return Object.fromEntries(rows.map(row => [row.user_id, row]))
 }
 
 export function mapJobPostRow(

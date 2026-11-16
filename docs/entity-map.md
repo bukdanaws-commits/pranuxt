@@ -99,6 +99,6 @@ Reviews & komunikasi: `notifications`¹, `reviews`, `reports`. Verifikasi: `veri
 
 1. Setiap FK `*_id` bertipe `uuid` dan menunjuk `id` tabel yang disebut.
 2. Semua tabel punya `created_at timestamptz default now()`; tabel mutable punya `updated_at` — **kecuali** yang di DB nyata tidak memilikinya (profiles, worker_profiles, eo_profiles, job_posts, job_applications, cities, competencies, dll. — kontrak TS mengikuti DB).
-3. `worker_id`/`user_id` menunjuk `profiles.id`, bukan `worker_profiles.id`.
+3. `worker_id`/`user_id` menunjuk `profiles.id`, bukan `worker_profiles.id`. Sama untuk **`eo_id`** — keenam FK `eo_id` (job_posts, rfqs, event_payment_orders, event_fee_invoices, purchase_orders, commission_invoices) semuanya `REFERENCES public.profiles(id)`; join ke profil organisasi dilakukan via `eo_profiles.user_id` (lihat `mapEoProfileRows`).
 4. Status UPPERCASE + CHECK; TS union di `shared/constants/enums.ts` (domain lama) dan `shared/data/contracts/schema.ts` (domain baru) harus identik dengan CHECK.
 5. Uang integer rupiah; rate `numeric(5,2)` persen.

@@ -15,7 +15,6 @@ import type {
   JobAssignmentRow,
   JobPostRow,
   JobRequirementRow,
-  NotificationRow,
   ProfileRow,
   WorkerProfileRow,
   WorkerSkillRow,

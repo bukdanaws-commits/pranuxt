@@ -120,7 +120,12 @@ async function main() {
     ...row,
     worker_id: pid(row.worker_id),
   })))
-  await upsert('job_posts', jobPostRows)
+  // eo_id = id profile akun EO (FK terkunci job_posts_eo_id_fkey →
+  // profiles.id). Mock memakai user_id mock EO, jadi remap via pid().
+  await upsert('job_posts', jobPostRows.map(row => ({
+    ...row,
+    eo_id: pid(row.eo_id),
+  })))
   await upsert('job_requirements', jobRequirementRows)
   await upsert('job_applications', jobApplicationRows.map(row => ({
     ...row,

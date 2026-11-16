@@ -34,3 +34,6 @@ download/
 
 *.pid
 dev.log
+
+# hasil persist output tool (runtime sandbox)
+tool-results/

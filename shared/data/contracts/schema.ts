@@ -486,6 +486,7 @@ export interface TrainingAssessmentsRow {
 export interface JobPostsRow {
   id: string
   created_at: string
+  /** FK job_posts_eo_id_fkey → profiles(id) — id profile akun EO (bukan id baris eo_profiles). */
   eo_id: string
   title: string
   description: string | null

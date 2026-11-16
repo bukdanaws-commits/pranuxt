@@ -12,13 +12,15 @@ const YOGYAKARTA = 'c232b1c5-9e2b-4a54-8f3a-71d0b45c9e12'
 const DENPASAR = 'e8b6c7d9-1a2b-4c3d-9e4f-5a6b7c8d9e0f'
 
 const JAKARTA = 'b0c1d2e3-f4a5-4b6c-8d7e-2f3a4b5c6d7e'
-const EO_JAKARTA = 'a2b3c4d5-e6f7-4809-9a1b-2c3d4e5f6071'
-const JAVA_PRODUCTION = 'b3c4d5e6-f7a8-491a-9b2c-4d5e6f708192'
-const SURABAYA_LIVE = 'c4d5e6f7-a8b9-4a2b-8c3d-6f7081929ba3'
-const BALI_PRESTASI = 'd6e7f8a9-c0d1-4b3e-9c4d-81929ba3c5d7'
-const EO_EVENT_MAJU = 'e7f8a9b0-c1d2-4e3f-8a4b-9c0d1e2f3a4b'
-const EO_KOMUNITAS_FEST = 'f8a9b0c1-d2e3-4f4a-9b5c-0d1e2f3a4b5c'
-const EO_JOGJA_EVENTS = 'a9b0c1d2-e3f4-4a5b-8c6d-1e2f3a4b5c6d'
+// eo_id = id PROFILE AKUN EO di profiles (FK terkunci job_posts_eo_id_fkey →
+// profiles(id)), yaitu nilai user_id baris eo_profiles — bukan id baris org.
+const EO_JAKARTA = '11a2b3c4-d5e6-4f70-8a91-b2c3d4e5f607'
+const JAVA_PRODUCTION = '22b3c4d5-e6f7-4809-8a1b-3d4e5f60718a'
+const SURABAYA_LIVE = '33c4d5e6-f7a8-491a-9b2c-5e6f7081929b'
+const BALI_PRESTASI = '44d5e6f7-a8b9-490a-8c2d-6f7081929ca4'
+const EO_EVENT_MAJU = '55e6f7a8-b9c0-490b-8d2e-7f8081929da5'
+const EO_KOMUNITAS_FEST = '66f7a8b9-c0d1-490c-8e3f-81929ba3eb6f'
+const EO_JOGJA_EVENTS = '77a8b9c0-d1e2-490d-8f4a-9201929bfa70'
 
 export const jobPostRows: JobPostRow[] = [
   {

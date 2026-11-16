@@ -50,7 +50,7 @@ const MECHANISM_ITEMS: PESelectItem[] = JOB_MECHANISM.map(value => ({
 }))
 
 const cityItems = computed<PESelectItem[]>(() =>
-  cities.value.map(city => ({ label: `${city.name} — ${city.provinceName}`, value: city.id })),
+  cities.value.map(city => ({ label: `${city.name} — ${city.province}`, value: city.id })),
 )
 
 /** Field yang mengikuti jobFilterSchema — divalidasi PEForm (UForm + zod). */

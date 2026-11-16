@@ -75,8 +75,6 @@ export const jobAssignmentRows: JobAssignmentRow[] = [
     completed_at: null,
     checked_in_at: null,
     checked_out_at: null,
-    note: null,
-    decided_at: null,
     created_at: '2026-10-15T09:00:00+07:00',
   },
   {
@@ -89,8 +87,6 @@ export const jobAssignmentRows: JobAssignmentRow[] = [
     completed_at: null,
     checked_in_at: null,
     checked_out_at: null,
-    note: null,
-    decided_at: null,
     created_at: '2026-11-01T09:00:00+07:00',
   },
 ]

@@ -95,7 +95,7 @@ const formState = reactive({
   city_id: '',
 })
 
-const cityItems = cityRows.map(row => ({ label: `${row.name} — ${row.province_name}`, value: row.id }))
+const cityItems = cityRows.map(row => ({ label: `${row.name} — ${row.province}`, value: row.id }))
 
 function onFormSubmit() {
   toast.success(

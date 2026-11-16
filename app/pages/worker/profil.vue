@@ -24,7 +24,7 @@ const formState = reactive({
 })
 
 const cityItems = computed(() =>
-  cities.value.map(city => ({ label: `${city.name} — ${city.provinceName}`, value: city.id })),
+  cities.value.map(city => ({ label: `${city.name} — ${city.province}`, value: city.id })),
 )
 
 const saving = ref(false)
