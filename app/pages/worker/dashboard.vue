@@ -206,7 +206,7 @@ function notifIcon(type: string): string {
           to="/worker/notifikasi"
           class="flex items-start gap-3 rounded-xl border border-default bg-default p-4 shadow-none transition-colors hover:bg-elevated"
         >
-          <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-brand-100 text-neutral-900">
+          <span class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-neutral-900">
             <UIcon
               :name="notifIcon(item.type)"
               class="size-4"

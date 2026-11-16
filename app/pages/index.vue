@@ -178,7 +178,7 @@ const LAYER_STACK = [
           <span
             v-for="chip in STACK_CHIPS"
             :key="chip"
-            class="rounded-full border border-neutral-700 px-3 py-1 text-xs font-medium text-neutral-300"
+            class="rounded-lg border border-neutral-700 px-3 py-1 text-xs font-medium text-neutral-300"
           >
             {{ chip }}
           </span>

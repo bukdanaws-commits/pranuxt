@@ -109,14 +109,14 @@ const itemActiveClass = 'bg-brand-400 text-neutral-900 font-semibold hover:bg-br
 
             <span
               v-if="item.badge === 'unread' && unreadCount > 0"
-              class="ml-auto flex min-w-5 justify-center rounded-full bg-error px-1.5 py-0.5 text-[10px] font-bold text-white"
+              class="ml-auto flex min-w-5 justify-center rounded-md bg-error px-1.5 py-0.5 text-[10px] font-bold text-white"
             >
               {{ unreadBadge }}
             </span>
 
             <span
               v-if="item.badge === 'verified'"
-              class="ml-auto rounded-full px-2 py-0.5 text-[10px] font-semibold"
+              class="ml-auto rounded-md px-2 py-0.5 text-[10px] font-semibold"
               :class="profile.isVerified ? 'bg-success-100 text-success-700' : 'bg-warning-100 text-warning-700'"
             >
               {{ profile.isVerified ? 'Terverifikasi' : 'Belum verifikasi' }}

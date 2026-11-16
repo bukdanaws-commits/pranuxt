@@ -108,9 +108,9 @@ const detailRows = computed(() => {
           <span>Slot terisi</span>
           <span class="font-semibold text-highlighted">{{ job.filledCount }}/{{ job.slotCount }} ({{ slotPercent }}%)</span>
         </div>
-        <div class="h-1.5 w-full overflow-hidden rounded-full bg-elevated">
+        <div class="h-1.5 w-full overflow-hidden rounded-sm bg-elevated">
           <div
-            class="h-full rounded-full bg-brand-400"
+            class="h-full rounded-sm bg-brand-400"
             :style="{ width: `${slotPercent}%` }"
           />
         </div>

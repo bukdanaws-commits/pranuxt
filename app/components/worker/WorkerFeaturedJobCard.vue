@@ -82,7 +82,7 @@ const moreItems = [
           </div>
 
           <span
-            class="inline-flex shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold"
+            class="inline-flex shrink-0 items-center gap-1.5 rounded-md border px-2.5 py-1 text-[11px] font-semibold"
             :class="job.eligible
               ? 'border-success-200 bg-success-50 text-success-700'
               : 'border-default bg-elevated text-muted'"
@@ -102,7 +102,7 @@ const moreItems = [
               class="size-4 shrink-0 text-muted"
             />
             <span class="font-medium">{{ job.companyName }}</span>
-            <span class="inline-flex items-center gap-1 rounded-full bg-success-50 px-2 py-0.5 text-[11px] font-semibold text-success-700">
+            <span class="inline-flex items-center gap-1 rounded-md bg-success-50 px-2 py-0.5 text-[11px] font-semibold text-success-700">
               <UIcon
                 name="i-lucide-check"
                 class="size-3"

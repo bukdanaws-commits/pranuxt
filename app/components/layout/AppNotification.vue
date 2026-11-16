@@ -48,7 +48,7 @@ function onMarkAll() {
     >
       <span
         v-if="unreadCount > 0"
-        class="absolute -top-0.5 -right-0.5 flex min-w-4.5 items-center justify-center rounded-full bg-error px-1 text-[10px] font-bold text-white"
+        class="absolute -top-0.5 -right-0.5 flex min-w-4.5 items-center justify-center rounded-md bg-error px-1 text-[10px] font-bold text-white"
       >
         {{ unreadCount > 9 ? '9+' : unreadCount }}
       </span>

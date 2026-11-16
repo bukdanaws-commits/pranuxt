@@ -7,6 +7,14 @@
  * Sumber palet: keputusan arsitektur bagian 4 — Brand Yellow #FACC15,
  * Brand Black #171717, Surface White #FFFFFF, Background #F5F5F5,
  * Success #16A34A, Error #DC2626.
+ *
+ * BENTUK KOMPONEN (keputusan desain "daun"): seluruh card, button, form,
+ * badge, dan elemen kotak memakai radius diagonal — kiri-atas rounded,
+ * kanan-atas lurus, kiri-bawah lurus, kanan-bawah rounded. Ditegakkan global
+ * dengan me-remap skala --radius-* Tailwind di @theme static di bawah, sehingga
+ * semua utility rounded-* (kode aplikasi DAN komponen internal Nuxt UI)
+ * otomatis mengikuti bentuk ini tanpa override per-komponen.
+ * rounded-full (avatar, dot) sengaja tidak diubah tetap bulat.
  */
 
 @theme static {
@@ -77,11 +85,23 @@
   --color-info-800: #1e40af;
   --color-info-900: #1e3a8a;
   --color-info-950: #172554;
+
+  /* SKALA RADIUS DIAGONAL — "bentuk daun" PEKERJA EVENT.
+     Urutan nilai border-radius: kiri-atas, kanan-atas, kanan-bawah, kiri-bawah.
+     Ukuran tiap step dipertahankan sama dengan default Tailwind (hanya bentuk
+     yang berubah, ukuran tidak), mis. rounded-md tetap 6 px namun diagonal. */
+  --radius-xs: 0.125rem 0 0.125rem 0;
+  --radius-sm: 0.25rem 0 0.25rem 0;
+  --radius-md: 0.375rem 0 0.375rem 0;
+  --radius-lg: 0.5rem 0 0.5rem 0;
+  --radius-xl: 0.75rem 0 0.75rem 0;
+  --radius-2xl: 1rem 0 1rem 0;
+  --radius-3xl: 1.5rem 0 1.5rem 0;
 }
 
 :root {
-  /* Radius komponen — card 10 px, mengikuti standar compact (10–12 px) */
-  --ui-radius: 0.625rem;
+  /* Radius komponen Nuxt UI (var --ui-radius) ikut bentuk diagonal "daun" */
+  --ui-radius: 0.625rem 0 0.625rem 0;
   --ui-container: 90rem;
 
   /* Token khusus PEKERJA EVENT */
