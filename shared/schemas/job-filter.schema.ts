@@ -2,7 +2,7 @@
  * Schema filter daftar lowongan (PEForm + PESelect pada halaman Lowongan).
  */
 import { z } from 'zod'
-import { JOB_MECHANISM } from '#shared/constants/enums'
+import { JOB_MECHANISM, JOB_STATUS } from '#shared/constants/enums'
 
 export const jobFilterSchema = z.object({
   query: z.string().max(120, 'Kata kunci maksimal 120 karakter').optional(),
@@ -14,6 +14,7 @@ export const jobFilterSchema = z.object({
     .max(100_000_000, 'Upah terlalu besar')
     .optional(),
   mechanism: z.enum(JOB_MECHANISM).optional(),
+  status: z.enum(JOB_STATUS).optional(),
 })
 
 export type JobFilterInput = z.infer<typeof jobFilterSchema>

@@ -1,6 +1,6 @@
 # PEKERJA EVENT — UI Component Library v1
 
-Tahap 1 (Foundation & Design System) platform pelatihan & penempatan tenaga kerja event Indonesia.
+Tahap 1–3 platform pelatihan & penempatan tenaga kerja event Indonesia.
 Satu fondasi desain untuk empat dashboard: **Worker, EO, Admin, Instruktur** (vendor menyusul).
 
 ## Stack
@@ -24,10 +24,18 @@ app/
     ui/              PEButton PEInput PESelect PECard PEStatus PEAvatar
                      PEModal PETable PEForm (+ composable usePEToast)
     layout/          AppTopbar AppNavigation AppBreadcrumb AppNotification
-    worker/          WorkerProfileCard WorkerJobCard WorkerApplicationCard WorkerSkillList
-  layouts/           default.vue · worker.vue
-  pages/             index.vue (showcase) · worker/dashboard.vue (demo)
-  composables/       usePEToast · useWorkerData (pintu data fase mock)
+                     AppPagePlaceholder
+    worker/          WorkerProfileCard WorkerJobCard WorkerApplicationCard
+                     WorkerSkillList WorkerJobDetailModal
+  layouts/           default · worker · eo · admin · instructor
+  pages/
+    index.vue        showcase component library
+    worker/          dashboard · lowongan · lamaran · profil (Tahap 3)
+    eo/              5 halaman placeholder (Tahap 4)
+    admin/           6 halaman placeholder (Tahap 5)
+    instructor/      5 halaman placeholder (Tahap 5)
+  composables/       usePEToast · useWorkerData (pintu data mock)
+                     useWorkerActions (detail · lamar · tarik lamaran)
 shared/
   types/             kontrak Row (snake_case, bentuk baris Supabase) + DTO (camelCase)
   constants/         enums.ts · status-meta.ts · transitions.ts · navigation.ts
@@ -42,9 +50,12 @@ shared/
    diganti fetch `/api/*` saat integrasi tanpa mengubah komponen.
 3. **Baris mock = bentuk baris Supabase** (snake_case, uuid, ISO, uang integer rupiah,
    status UPPERCASE) — bisa ditempel ke database tanpa diubah.
-4. **Guard transisi status di `shared/constants/transitions.ts`**, bukan di komponen UI.
+4. **Guard transisi status di `shared/constants/transitions.ts`**, bukan di komponen UI —
+   komponen hanya menyembunyikan aksi yang pasti gagal (mis. "Tarik" hanya saat SUBMITTED).
 5. **Kontras aksesibilitas**: tombol solid primary = teks hitam di atas kuning;
    outline/soft primary = teks `brand-700` (bukan kuning murni).
+6. **Keamanan peran di server** — role-switcher di topbar hanya pengaturan tampilan fase
+   mock (D4); middleware tidak pernah jadi garis keamanan.
 
 ## Menjalankan
 
@@ -58,11 +69,16 @@ bun run typecheck  # vue-tsc
 ## Halaman
 
 - `/` — showcase component library: design tokens, semua komponen Layer 3 & Layer 4, arsitektur lapisan.
-- `/worker/dashboard` — demo dashboard Worker (Tahap 3 preview) di atas layout topbar.
+- `/worker/dashboard` — overview worker: profil, rekomendasi lowongan, lamaran terbaru, kompetensi.
+- `/worker/lowongan` — daftar lowongan lengkap: filter tervalidasi `jobFilterSchema` (kata kunci, kota, mekanisme, upah minimal), status & urutan, detail modal, alur lamar.
+- `/worker/lamaran` — ringkasan lamaran per status + filter + tarik lamaran (guard transisi).
+- `/worker/profil` — data diri (form `workerProfileSchema`), status KYC, kompetensi.
+- `/eo/*`, `/admin/*`, `/instructor/*` — kerangka modul (placeholder) menuju Tahap 4–5;
+  ganti peran lewat menu pengguna di topbar (role-switcher dev).
 
 ## Status tahapan
 
-- [x] **Tahap 1** — Foundation & Design System (file ini)
-- [ ] **Tahap 2** — Layout System (topbar & notifikasi sudah di-preview di sini)
-- [ ] **Tahap 3** — Worker Dashboard (halaman demo sudah di-preview di sini)
+- [x] **Tahap 1** — Foundation & Design System
+- [x] **Tahap 2** — Layout System penuh: menu 4 peran, layout per peran, role-switcher dev (D4), placeholder modul
+- [x] **Tahap 3** — Worker Dashboard penuh: overview, lowongan + filter + detail modal, lamaran + withdraw, profil + KYC
 - [ ] **Tahap 4** — EO Dashboard · **Tahap 5** — Admin & Instruktur · **Tahap 6** — QA

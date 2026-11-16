@@ -17,6 +17,7 @@ export const demoProfileRow: ProfileRow = {
 export const demoWorkerProfileRow: WorkerProfileRow = {
   id: 'e6f7a8b9-c0d1-4c4e-8e5f-81929ba3b4c5',
   user_id: 'd5e6f7a8-b9c0-4b3d-9d4e-7081929ba3b4',
+  city_id: '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d', // Jakarta Selatan
   full_name: 'Rina Maulida',
   phone_number: '081234567890',
   bio: 'Worker event berpengalaman 3 tahun di area hospitality dan operasional. Terbiasa bekerja di konser, seminar, dan pameran besar.',

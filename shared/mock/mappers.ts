@@ -38,9 +38,11 @@ export function mapJobPostRow(
   return {
     id: row.id,
     title: row.title,
+    description: row.description,
     companyName: eo?.org_name ?? 'EO Tidak Dikenal',
     eventName: row.event_name,
     eventDate: row.event_date,
+    cityId: row.city_id,
     cityName: city?.name ?? 'Kota tidak dikenal',
     wage: row.wage,
     durationDays: row.duration_days,
@@ -55,12 +57,15 @@ export function mapWorkerProfile(
   profile: ProfileRow,
   workerProfile: WorkerProfileRow,
   stats: WorkerProfileDto['stats'],
+  city?: CityRow,
 ): WorkerProfileDto {
   return {
     id: profile.id,
     fullName: workerProfile.full_name || profile.name,
     email: profile.email,
     phone: workerProfile.phone_number,
+    cityId: workerProfile.city_id ?? null,
+    cityName: city?.name ?? null,
     bio: workerProfile.bio,
     photoPath: workerProfile.photo_path,
     isVerified: workerProfile.is_verified,
@@ -78,6 +83,7 @@ export function mapJobApplication(
 ): WorkerApplicationDto {
   return {
     id: row.id,
+    jobId: row.job_post_id,
     jobTitle: job?.title ?? 'Lowongan tidak dikenal',
     companyName: eo?.org_name ?? 'EO Tidak Dikenal',
     cityName: city?.name ?? 'Kota tidak dikenal',

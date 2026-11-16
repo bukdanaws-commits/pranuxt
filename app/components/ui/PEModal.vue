@@ -12,6 +12,8 @@ type Props = {
   /** Set true saat aksi konfirmasi sedang diproses. */
   loading?: boolean
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  /** Sembunyikan footer bawaan — untuk modal informasional dengan aksi kustom. */
+  hideActions?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -21,6 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
   confirmColor: 'primary',
   loading: false,
   size: 'md',
+  hideActions: false,
 })
 
 const open = defineModel<boolean>('open', { default: false })
@@ -49,7 +52,10 @@ function onConfirm() {
       <slot />
     </template>
 
-    <template #footer>
+    <template
+      v-if="!props.hideActions"
+      #footer
+    >
       <div class="flex w-full items-center justify-end gap-3">
         <PEButton
           :label="props.cancelLabel"

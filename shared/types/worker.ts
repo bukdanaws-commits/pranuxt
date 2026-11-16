@@ -35,6 +35,8 @@ export interface ProfileRow {
 export interface WorkerProfileRow {
   id: string
   user_id: string
+  /** Domisili worker (entity-map: worker_profiles.city_id? -> cities). */
+  city_id: string | null
   full_name: string
   phone_number: string | null
   bio: string | null
@@ -122,6 +124,8 @@ export interface WorkerProfileDto {
   fullName: string
   email: string
   phone: string | null
+  cityId: string | null
+  cityName: string | null
   bio: string | null
   photoPath: string | null
   isVerified: boolean
@@ -138,10 +142,13 @@ export interface WorkerProfileDto {
 export interface JobPostDto {
   id: string
   title: string
+  description: string | null
   companyName: string
   eventName: string
   /** YYYY-MM-DD */
   eventDate: string
+  /** UUID kota (dipakai filter daftar lowongan). */
+  cityId: string
   cityName: string
   /** Integer rupiah per hari. */
   wage: number
@@ -155,6 +162,8 @@ export interface JobPostDto {
 /** Kartu lamaran worker. */
 export interface WorkerApplicationDto {
   id: string
+  /** UUID job_posts sumber — dipakai membuka detail lowongan dari kartu lamaran. */
+  jobId: string
   jobTitle: string
   companyName: string
   cityName: string
