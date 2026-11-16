@@ -75,12 +75,4 @@ export const jobAssignmentRows: JobAssignmentRow[] = [
     created_at: '2026-11-01T09:00:00+07:00',
     updated_at: '2026-11-09T22:00:00+07:00',
   },
-  {
-    id: 'c2d3e4f5-a6b7-4c9d-8e1f-2a3b4c5d6e7b',
-    job_post_id: '5e6f7a8b-9c0d-4e2f-8a3b-4c5d6e7f8a9b',
-    worker_id: WORKER,
-    status: 'COMPLETED',
-    created_at: '2026-09-20T09:00:00+07:00',
-    updated_at: '2026-09-30T22:00:00+07:00',
-  },
 ]

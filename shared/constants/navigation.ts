@@ -6,15 +6,52 @@
  * Vendor belum punya dashboard di versi ini — portal vendor menyusul pada
  * rilis Opsi A2 (keputusan D1), maka getNavigationForRole('vendor') kosong.
  */
-import type { PENavItem } from '#shared/types/ui'
+import type { PENavItem, PENavSection } from '#shared/types/ui'
 import type { RoleCode } from '#shared/constants/enums'
 
-export const WORKER_NAVIGATION: PENavItem[] = [
-  { label: 'Beranda', to: '/worker/dashboard', icon: 'i-lucide-home' },
-  { label: 'Lowongan', to: '/worker/lowongan', icon: 'i-lucide-briefcase' },
-  { label: 'Lamaran', to: '/worker/lamaran', icon: 'i-lucide-file-text' },
-  { label: 'Profil', to: '/worker/profil', icon: 'i-lucide-user' },
+/**
+ * Sidebar worker (desain dashboard v2) — menu bergrup: Utama, Penghasilan,
+ * Kompetensi, Akun. Item "Notifikasi" membawa badge jumlah belum dibaca,
+ * item "Verifikasi" membawa chip status terverifikasi profil.
+ */
+export const WORKER_NAV_SECTIONS: PENavSection[] = [
+  {
+    label: 'Utama',
+    items: [
+      { label: 'Ringkasan', to: '/worker/dashboard', icon: 'i-lucide-layout-dashboard' },
+      { label: 'Cari Lowongan', to: '/worker/lowongan', icon: 'i-lucide-search' },
+      { label: 'Lamaran Saya', to: '/worker/lamaran', icon: 'i-lucide-file-text' },
+      { label: 'Penugasan Saya', to: '/worker/penugasan', icon: 'i-lucide-clipboard-list' },
+      { label: 'Notifikasi', to: '/worker/notifikasi', icon: 'i-lucide-bell', badge: 'unread' },
+    ],
+  },
+  {
+    label: 'Penghasilan',
+    items: [
+      { label: 'Upah Saya', to: '/worker/upah', icon: 'i-lucide-wallet' },
+      { label: 'Rekening Pencairan', to: '/worker/rekening', icon: 'i-lucide-landmark' },
+    ],
+  },
+  {
+    label: 'Kompetensi',
+    items: [
+      { label: 'Paspor Kompetensi', to: '/worker/paspor-kompetensi', icon: 'i-lucide-id-card' },
+      { label: 'Sertifikat Saya', to: '/worker/sertifikat', icon: 'i-lucide-award' },
+      { label: 'Pelatihan', to: '/worker/pelatihan', icon: 'i-lucide-graduation-cap' },
+    ],
+  },
+  {
+    label: 'Akun',
+    items: [
+      { label: 'Profil Saya', to: '/worker/profil', icon: 'i-lucide-user' },
+      { label: 'Verifikasi', to: '/worker/verifikasi', icon: 'i-lucide-shield-check', badge: 'verified' },
+      { label: 'Pengaduan Saya', to: '/worker/pengaduan', icon: 'i-lucide-message-square-warning' },
+    ],
+  },
 ]
+
+/** Bentuk datar untuk konsumen lama (AppTopbar, role-switcher dev). */
+export const WORKER_NAVIGATION: PENavItem[] = WORKER_NAV_SECTIONS.flatMap(section => section.items)
 
 export const EO_NAVIGATION: PENavItem[] = [
   { label: 'Beranda', to: '/eo/dashboard', icon: 'i-lucide-home' },

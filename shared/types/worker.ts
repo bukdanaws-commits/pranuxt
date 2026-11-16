@@ -65,6 +65,8 @@ export interface CityRow {
 
 export interface CompetencyRow {
   id: string
+  /** Kode kompetensi unik, mis. STG-001 (uq_competencies_code). */
+  code: string
   name: string
   category: string
   is_active: boolean
@@ -86,6 +88,9 @@ export interface JobPostRow {
   event_name: string
   /** Tanggal murni, tanpa waktu (YYYY-MM-DD). Zona default WIB (P15). */
   event_date: string
+  /** Jam mulai/berakhir, format 'HH:MM:00' (tipe time Postgres). Nullable. */
+  start_time: string | null
+  end_time: string | null
   city_id: string
   /** Integer rupiah per hari (Q3 — tanpa sen). */
   wage: number
@@ -96,6 +101,14 @@ export interface JobPostRow {
   status: JobStatus
   created_at: string
   updated_at: string
+}
+
+/** Persyaratan kompetensi lowongan (entity 15 — job_requirements). */
+export interface JobRequirementRow {
+  id: string
+  job_post_id: string
+  competency_id: string
+  is_required: boolean
 }
 
 export interface JobApplicationRow {
@@ -147,6 +160,13 @@ export interface JobPostDto {
   eventName: string
   /** YYYY-MM-DD */
   eventDate: string
+  /** 'HH:MM' — hasil slice dari kolom time; null bila lowongan tanpa jadwal jam. */
+  startTime: string | null
+  endTime: string | null
+  /** Nama kompetensi utama (join job_requirements → competencies) untuk banner & kelayakan. */
+  primaryCompetency: string | null
+  /** Semua kompetensi wajib sudah VERIFIED di worker_skills worker aktif. */
+  eligible: boolean
   /** UUID kota (dipakai filter daftar lowongan). */
   cityId: string
   cityName: string
@@ -169,6 +189,18 @@ export interface WorkerApplicationDto {
   cityName: string
   status: JobApplicationStatus
   submittedAt: string
+}
+
+/** Penugasan worker (job_assignments) untuk halaman Penugasan & dashboard. */
+export interface WorkerAssignmentDto {
+  id: string
+  jobId: string
+  jobTitle: string
+  companyName: string
+  cityName: string
+  eventDate: string
+  status: AssignmentStatus
+  appliedVia: JobMechanism
 }
 
 /** Item daftar kompetensi worker. */

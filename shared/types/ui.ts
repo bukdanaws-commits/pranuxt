@@ -13,11 +13,19 @@ export interface PESelectItem {
   disabled?: boolean
 }
 
-/** Item navigasi dashboard (dipakai AppNavigation / AppTopbar). */
+/** Item navigasi dashboard (dipakai WorkerSidebar / AppNavigation / AppTopbar). */
 export interface PENavItem {
   label: string
   to: string
   icon?: string
+  /** Chip khusus di sisi kanan item menu. */
+  badge?: 'unread' | 'verified'
+}
+
+/** Grup menu navigasi per peran (label section kecil di sidebar). */
+export interface PENavSection {
+  label: string
+  items: PENavItem[]
 }
 
 /** Kode error standar API v1 (bentuk { error: { code, message } }). */

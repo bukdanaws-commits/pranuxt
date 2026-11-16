@@ -16,6 +16,14 @@ const TYPE_ICONS: Record<string, string> = {
   KYC_APPROVED: 'i-lucide-shield-check',
   PAYOUT_CONFIRMED: 'i-lucide-wallet',
   TRAINING_PUBLISHED: 'i-lucide-graduation-cap',
+  TRAINING_SESSION_STARTED: 'i-lucide-graduation-cap',
+  COMPLAINT_CREATED: 'i-lucide-message-square-warning',
+  COMPLAINT_UNDER_REVIEW: 'i-lucide-file-search',
+  COMPLAINT_RESOLVED: 'i-lucide-circle-check-big',
+  COMPETENCY_VERIFIED: 'i-lucide-award',
+  SKILL_CLAIMED: 'i-lucide-sparkles',
+  WAGE_PAID: 'i-lucide-banknote',
+  ASSIGNMENT_COMPLETED: 'i-lucide-circle-check-big',
 }
 
 function iconFor(type: string): string {
@@ -40,9 +48,9 @@ function onMarkAll() {
     >
       <span
         v-if="unreadCount > 0"
-        class="absolute -top-0.5 -right-0.5 flex size-4 items-center justify-center rounded-full bg-neutral-900 text-[10px] font-bold text-brand-400"
+        class="absolute -top-0.5 -right-0.5 flex min-w-4.5 items-center justify-center rounded-full bg-error px-1 text-[10px] font-bold text-white"
       >
-        {{ unreadCount }}
+        {{ unreadCount > 9 ? '9+' : unreadCount }}
       </span>
     </UButton>
 

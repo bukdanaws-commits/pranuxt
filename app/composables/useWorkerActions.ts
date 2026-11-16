@@ -35,11 +35,20 @@ export function useWorkerActions() {
   function confirmApply() {
     applyOpen.value = false
     if (!applyTarget.value) return
-    toast.success(
-      `Lamaran "${applyTarget.value.title}" terkirim`,
-      'Fase integrasi: memanggil rpc_apply_to_job lewat /api — guard SLOT_FULL & ALREADY_APPLIED di server.',
-    )
+    const target = applyTarget.value
     applyTarget.value = null
+    if (target.mechanism === 'DIRECT') {
+      toast.success(
+        `Permintaan penunjukan "${target.title}" terkirim`,
+        'Fase integrasi: memanggil rpc_claim_direct_job lewat /api — guard SLOT_FULL & ALREADY_APPLIED di server.',
+      )
+    }
+    else {
+      toast.success(
+        `Lamaran "${target.title}" terkirim`,
+        'Fase integrasi: memanggil rpc_apply_to_job lewat /api — guard SLOT_FULL & ALREADY_APPLIED di server.',
+      )
+    }
   }
 
   /* ===== Tarik lamaran ===== */

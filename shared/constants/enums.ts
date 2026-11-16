@@ -25,6 +25,9 @@ export type JobApplicationStatus = (typeof JOB_APPLICATION_STATUS)[number]
 export const ASSIGNMENT_STATUS = ['PENDING_CONFIRMATION', 'CONFIRMED', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED', 'NO_SHOW'] as const
 export type AssignmentStatus = (typeof ASSIGNMENT_STATUS)[number]
 
+/** Status penugasan yang dihitung "aktif" pada statistik dashboard worker. */
+export const ACTIVE_ASSIGNMENT_STATUSES: readonly AssignmentStatus[] = ['PENDING_CONFIRMATION', 'CONFIRMED', 'IN_PROGRESS'] as const
+
 export const JOB_MECHANISM = ['APPLICATION', 'DIRECT'] as const
 export type JobMechanism = (typeof JOB_MECHANISM)[number]
 

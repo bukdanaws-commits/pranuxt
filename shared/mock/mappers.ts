@@ -15,6 +15,7 @@ import type {
   JobPostRow,
   ProfileRow,
   WorkerApplicationDto,
+  WorkerAssignmentDto,
   WorkerProfileDto,
   WorkerProfileRow,
   WorkerSkillDto,
@@ -34,6 +35,8 @@ export function mapJobPostRow(
   row: JobPostRow,
   city: CityRow | undefined,
   eo: EoProfileRow | undefined,
+  primaryCompetency: string | null = null,
+  eligible = false,
 ): JobPostDto {
   return {
     id: row.id,
@@ -42,6 +45,10 @@ export function mapJobPostRow(
     companyName: eo?.org_name ?? 'EO Tidak Dikenal',
     eventName: row.event_name,
     eventDate: row.event_date,
+    startTime: row.start_time ? row.start_time.slice(0, 5) : null,
+    endTime: row.end_time ? row.end_time.slice(0, 5) : null,
+    primaryCompetency,
+    eligible,
     cityId: row.city_id,
     cityName: city?.name ?? 'Kota tidak dikenal',
     wage: row.wage,
@@ -89,6 +96,25 @@ export function mapJobApplication(
     cityName: city?.name ?? 'Kota tidak dikenal',
     status: row.status,
     submittedAt: row.created_at,
+  }
+}
+
+/** Penugasan worker — join job_posts + cities + eo_profiles. */
+export function mapJobAssignment(
+  row: JobAssignmentRow,
+  job: JobPostRow | undefined,
+  city: CityRow | undefined,
+  eo: EoProfileRow | undefined,
+): WorkerAssignmentDto {
+  return {
+    id: row.id,
+    jobId: row.job_post_id,
+    jobTitle: job?.title ?? 'Penugasan tidak dikenal',
+    companyName: eo?.org_name ?? 'EO Tidak Dikenal',
+    cityName: city?.name ?? 'Kota tidak dikenal',
+    eventDate: job?.event_date ?? '',
+    status: row.status,
+    appliedVia: job?.mechanism ?? 'APPLICATION',
   }
 }
 

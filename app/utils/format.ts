@@ -15,7 +15,37 @@ export function formatTanggal(value: string): string {
     day: 'numeric',
     month: 'short',
     year: 'numeric',
+    timeZone: 'Asia/Jakarta',
   }).format(date)
+}
+
+/** Format tanggal bulan penuh: "17 Januari 2026" (kartu lowongan dashboard). */
+export function formatTanggalPanjang(value: string): string {
+  const date = new Date(`${value.slice(0, 10)}T00:00:00+07:00`)
+  return new Intl.DateTimeFormat('id-ID', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'Asia/Jakarta',
+  }).format(date)
+}
+
+/** Format ISO timestamp gaya notifikasi desain: "30 November 2025 pukul 10.00". */
+export function formatWaktuNotifikasi(iso: string): string {
+  const date = new Date(iso)
+  const tanggal = new Intl.DateTimeFormat('id-ID', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'Asia/Jakarta',
+  }).format(date)
+  const jam = new Intl.DateTimeFormat('id-ID', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+    timeZone: 'Asia/Jakarta',
+  }).format(date).replace(':', '.')
+  return `${tanggal} pukul ${jam}`
 }
 
 /** Format waktu relatif untuk notifikasi: "2 jam lalu". */
@@ -32,11 +62,11 @@ export function formatWaktuRelatif(iso: string): string {
   const diffDays = Math.round(diffHours / 24)
   if (diffDays < 30) return `${diffDays} hari lalu`
 
-  return new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })
+  return new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Asia/Jakarta' })
     .format(new Date(iso))
 }
 
-/** Inisial nama untuk PEAvatar: "Rina Maulida" -> "RM". */
+/** Inisial nama untuk avatar: "Budi Santoso" -> "BS". */
 export function formatInisial(fullName: string): string {
   return fullName
     .split(' ')

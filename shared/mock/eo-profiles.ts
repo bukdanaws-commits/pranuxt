@@ -1,5 +1,7 @@
 /**
  * Seed mock — tabel eo_profiles (EO demo untuk nama perusahaan lowongan).
+ * Termasuk tiga EO dari desain dashboard worker: PT Event Maju Jakarta,
+ * Komunitas Fest Bandung, dan Jogja Events.
  */
 import type { EoProfileRow } from '#shared/types/worker'
 
@@ -35,5 +37,29 @@ export const eoProfileRows: EoProfileRow[] = [
     is_verified: true,
     created_at: '2026-08-20T09:00:00+07:00',
     updated_at: '2026-11-05T09:00:00+07:00',
+  },
+  {
+    id: 'e7f8a9b0-c1d2-4e3f-8a4b-9c0d1e2f3a4b',
+    user_id: '55e6f7a8-b9c0-490b-8d2e-7f8081929da5',
+    org_name: 'PT Event Maju Jakarta',
+    is_verified: true,
+    created_at: '2026-08-05T09:00:00+07:00',
+    updated_at: '2026-11-10T09:00:00+07:00',
+  },
+  {
+    id: 'f8a9b0c1-d2e3-4f4a-9b5c-0d1e2f3a4b5c',
+    user_id: '66f7a8b9-c0d1-490c-8e3f-81929ba3eb6f',
+    org_name: 'Komunitas Fest Bandung',
+    is_verified: true,
+    created_at: '2026-08-12T09:00:00+07:00',
+    updated_at: '2026-11-08T09:00:00+07:00',
+  },
+  {
+    id: 'a9b0c1d2-e3f4-4a5b-8c6d-1e2f3a4b5c6d',
+    user_id: '77a8b9c0-d1e2-490d-8f4a-9201929bfa70',
+    org_name: 'Jogja Events',
+    is_verified: true,
+    created_at: '2026-08-18T09:00:00+07:00',
+    updated_at: '2026-11-06T09:00:00+07:00',
   },
 ]
