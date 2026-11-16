@@ -30,3 +30,4 @@ download/
 
 # sistem
 .DS_Store
+.zscripts/dev.pid
