@@ -21,6 +21,18 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
+  /**
+   * Preview workspace mem-proxies domain eksternal (mis. *.fcapp.run) ke port
+   * 3000, dan Host header-nya berubah tiap sesi. Vite memblokir Host asing
+   * secara default (server.allowedHosts) — untuk fase dev sandbox kita izinkan
+   * semua host. Produksi tidak terpengaruh (server produksi bukan Vite dev).
+   */
+  vite: {
+    server: {
+      allowedHosts: true,
+    },
+  },
+
   app: {
     head: {
       title: 'PEKERJA EVENT',
