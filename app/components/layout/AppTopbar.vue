@@ -8,7 +8,7 @@
  */
 import type { DropdownMenuItem } from '@nuxt/ui'
 import type { RoleCode } from '#shared/constants/enums'
-import { getNavigationForRole } from '#shared/constants/navigation'
+import { DASHBOARD_ROLES, DASHBOARD_ROUTE_BY_ROLE, getNavigationForRole } from '#shared/constants/navigation'
 
 type Props = {
   role?: RoleCode
@@ -37,6 +37,22 @@ const ROLE_ICONS: Record<RoleCode, string> = {
 }
 
 const { profile } = useWorkerData()
+const toast = usePEToast()
+
+/**
+ * Role-switcher dev (keputusan D4): fase mock berjalan tanpa login,
+ * peran aktif diganti lewat menu ini untuk mendemokan dashboard lain.
+ * Pada fase integrasi digantikan Supabase Auth + guard di server.
+ */
+const roleSwitchItems = computed<DropdownMenuItem[]>(() =>
+  DASHBOARD_ROLES
+    .filter(role => role !== props.role)
+    .map(role => ({
+      label: `Masuk sebagai ${ROLE_LABEL[role]}`,
+      icon: ROLE_ICONS[role],
+      to: DASHBOARD_ROUTE_BY_ROLE[role],
+    })),
+)
 
 const userMenuItems = computed<DropdownMenuItem[]>(() => [
   {
@@ -49,20 +65,24 @@ const userMenuItems = computed<DropdownMenuItem[]>(() => [
     icon: ROLE_ICONS[props.role],
     disabled: true,
   },
+  ...roleSwitchItems.value,
+  { type: 'separator' },
   {
     label: 'Profil Saya',
     icon: 'i-lucide-id-card',
-    to: '/worker/dashboard#profil',
+    to: '/worker/profil',
   },
   {
     label: 'Pengaturan',
     icon: 'i-lucide-settings',
     disabled: true,
   },
+  { type: 'separator' },
   {
     label: 'Keluar',
     icon: 'i-lucide-log-out',
     color: 'error',
+    onSelect: () => toast.info('Fase mock — belum terhubung Supabase Auth (D4)'),
   },
 ])
 
