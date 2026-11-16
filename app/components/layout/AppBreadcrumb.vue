@@ -11,11 +11,11 @@ defineProps<{
 
 <template>
   <!--
-    linkActive ditimpa: bawaan text-primary (kuning) kontrasnya rendah
-    di latar terang — item aktif memakai teks gelap + berat font-medium.
+    color="neutral": item aktif memakai teks gelap, bukan text-primary
+    (kuning brand) yang kontrasnya rendah di latar terang.
   -->
   <UBreadcrumb
     :items="items"
-    :ui="{ linkActive: 'text-default font-medium' }"
+    color="neutral"
   />
 </template>
