@@ -55,7 +55,7 @@ const detailRows = computed(() => {
   >
     <div
       v-if="job"
-      class="space-y-5"
+      class="space-y-4"
     >
       <div class="flex flex-wrap items-center gap-2">
         <PEStatus
@@ -82,7 +82,7 @@ const detailRows = computed(() => {
         {{ job.description ?? 'Deskripsi lowongan belum tersedia.' }}
       </p>
 
-      <dl class="grid grid-cols-1 gap-x-6 gap-y-3 rounded-xl border border-default bg-elevated p-4 sm:grid-cols-2">
+      <dl class="grid grid-cols-1 gap-x-6 gap-y-2.5 rounded-xl border border-default bg-elevated p-3 sm:grid-cols-2">
         <div
           v-for="row in detailRows"
           :key="row.label"
@@ -116,7 +116,7 @@ const detailRows = computed(() => {
         </div>
       </div>
 
-      <div class="flex justify-end gap-3">
+      <div class="flex justify-end gap-2">
         <PEButton
           label="Tutup"
           variant="ghost"

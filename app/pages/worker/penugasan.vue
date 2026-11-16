@@ -24,12 +24,12 @@ const historyAssignments = computed(() =>
 </script>
 
 <template>
-  <div class="space-y-8">
+  <div class="space-y-4">
     <div>
       <h1 class="text-2xl font-extrabold tracking-tight text-highlighted">
         Penugasan Saya
       </h1>
-      <p class="mt-1 text-sm text-muted">
+      <p class="mt-0.5 text-sm text-muted">
         Penugasan aktif menunggu konfirmasi Anda atau sedang berlangsung; riwayat berisi pekerjaan selesai.
       </p>
     </div>
@@ -40,12 +40,12 @@ const historyAssignments = computed(() =>
     >
       <div
         v-if="activeAssignments.length === 0"
-        class="flex flex-col items-center gap-3 py-8 text-center"
+        class="flex flex-col items-center gap-2 py-5 text-center"
       >
-        <span class="flex size-12 items-center justify-center rounded-2xl bg-brand-100 text-neutral-900">
+        <span class="flex size-10 items-center justify-center rounded-2xl bg-brand-100 text-neutral-900">
           <UIcon
             name="i-lucide-calendar-x"
-            class="size-6"
+            class="size-5"
           />
         </span>
         <div class="space-y-1">
@@ -66,12 +66,12 @@ const historyAssignments = computed(() =>
 
       <div
         v-else
-        class="flex flex-col gap-3"
+        class="flex flex-col gap-2"
       >
         <div
           v-for="item in activeAssignments"
           :key="item.id"
-          class="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-default bg-elevated p-4"
+          class="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-default bg-elevated p-3"
         >
           <div class="min-w-0">
             <p class="text-sm font-bold text-highlighted">
@@ -81,7 +81,7 @@ const historyAssignments = computed(() =>
               {{ item.companyName }} · {{ item.cityName }} · {{ formatTanggal(item.eventDate) }}
             </p>
           </div>
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2">
             <UBadge
               :label="item.appliedVia === 'DIRECT' ? 'Penunjukan langsung' : 'Lamaran'"
               color="neutral"
@@ -104,19 +104,19 @@ const historyAssignments = computed(() =>
     >
       <div
         v-if="historyAssignments.length === 0"
-        class="py-6 text-center text-sm text-muted"
+        class="py-4 text-center text-sm text-muted"
       >
         Belum ada riwayat penugasan.
       </div>
 
       <div
         v-else
-        class="flex flex-col gap-3"
+        class="flex flex-col gap-2"
       >
         <div
           v-for="item in historyAssignments"
           :key="item.id"
-          class="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-default p-4"
+          class="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-default p-3"
         >
           <div class="min-w-0">
             <p class="text-sm font-bold text-highlighted">

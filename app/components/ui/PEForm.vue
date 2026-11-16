@@ -37,7 +37,7 @@ function onSubmit(event: FormSubmitEvent<Record<string, unknown>>) {
     :schema="schema"
     :state="state"
     :validate-on="['blur', 'input']"
-    class="space-y-5"
+    class="space-y-4"
     @submit="onSubmit"
   >
     <slot />

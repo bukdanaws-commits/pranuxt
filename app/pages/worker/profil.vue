@@ -56,14 +56,14 @@ const breadcrumbItems = [
 </script>
 
 <template>
-  <div class="space-y-6">
-    <div class="space-y-3">
+  <div class="space-y-4">
+    <div class="space-y-2">
       <AppBreadcrumb :items="breadcrumbItems" />
       <div>
         <h1 class="text-2xl font-extrabold tracking-tight text-highlighted">
           Profil Saya
         </h1>
-        <p class="mt-1 text-sm text-muted">
+        <p class="mt-0.5 text-sm text-muted">
           Data diri, verifikasi identitas (KYC), dan kompetensi yang dipakai pencocokan lowongan.
         </p>
       </div>
@@ -74,7 +74,7 @@ const breadcrumbItems = [
       @edit="onEditProfile"
     />
 
-    <div class="grid gap-6 lg:grid-cols-3">
+    <div class="grid gap-3 lg:grid-cols-3">
       <PECard
         id="form-profil"
         title="Data Diri"
@@ -88,7 +88,7 @@ const breadcrumbItems = [
           :loading="saving"
           @submit="onSubmit"
         >
-          <div class="grid gap-4 sm:grid-cols-2">
+          <div class="grid gap-3 sm:grid-cols-2">
             <PEInput
               v-model="formState.full_name"
               label="Nama Lengkap"
@@ -126,14 +126,14 @@ const breadcrumbItems = [
         </PEForm>
       </PECard>
 
-      <div class="space-y-6">
+      <div class="space-y-4">
         <PECard
           title="Verifikasi Identitas (KYC)"
           description="KYC disetujui menjadi syarat melamar lowongan tertentu."
         >
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2.5">
             <span
-              class="flex size-10 shrink-0 items-center justify-center rounded-lg"
+              class="flex size-9 shrink-0 items-center justify-center rounded-lg"
               :class="profile.kycStatus === 'APPROVED' ? 'bg-brand-100 text-neutral-900' : 'bg-elevated text-dimmed'"
             >
               <UIcon
@@ -149,7 +149,7 @@ const breadcrumbItems = [
             />
           </div>
 
-          <ul class="mt-4 space-y-2.5 text-sm">
+          <ul class="mt-3 space-y-2 text-sm">
             <li class="flex items-center justify-between gap-3">
               <span class="text-muted">Email akun</span>
               <span class="truncate font-semibold text-highlighted">{{ profile.email }}</span>

@@ -75,7 +75,7 @@ function onMarkAll() {
           <div
             v-for="item in notifications"
             :key="item.id"
-            class="flex gap-3 border-b border-muted px-4 py-3 last:border-b-0 hover:bg-elevated"
+            class="flex gap-2.5 border-b border-muted px-3 py-2.5 last:border-b-0 hover:bg-elevated"
           >
             <span class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand-100 text-neutral-900">
               <UIcon

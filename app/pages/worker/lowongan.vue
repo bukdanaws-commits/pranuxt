@@ -117,14 +117,14 @@ const breadcrumbItems = [
 </script>
 
 <template>
-  <div class="space-y-6">
-    <div class="space-y-3">
+  <div class="space-y-4">
+    <div class="space-y-2">
       <AppBreadcrumb :items="breadcrumbItems" />
       <div>
         <h1 class="text-2xl font-extrabold tracking-tight text-highlighted">
           Cari Lowongan
         </h1>
-        <p class="mt-1 text-sm text-muted">
+        <p class="mt-0.5 text-sm text-muted">
           {{ filteredJobs.length }} dari {{ jobs.length }} lowongan · filter tervalidasi jobFilterSchema
         </p>
       </div>
@@ -139,7 +139,7 @@ const breadcrumbItems = [
         :state="filterState"
         hide-actions
       >
-        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
           <PEInput
             v-model="filterState.query"
             label="Kata Kunci"
@@ -174,8 +174,8 @@ const breadcrumbItems = [
         </div>
       </PEForm>
 
-      <div class="mt-5 flex flex-wrap items-end justify-between gap-4">
-        <div class="flex flex-wrap items-end gap-4">
+      <div class="mt-3 flex flex-wrap items-end justify-between gap-3">
+        <div class="flex flex-wrap items-end gap-3">
           <PESelect
             v-model="statusFilter"
             label="Status"
@@ -204,7 +204,7 @@ const breadcrumbItems = [
 
     <div
       v-if="filteredJobs.length > 0"
-      class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
+      class="grid gap-2.5 sm:grid-cols-2 xl:grid-cols-3"
     >
       <WorkerJobCard
         v-for="job in filteredJobs"
@@ -216,11 +216,11 @@ const breadcrumbItems = [
     </div>
 
     <PECard v-else>
-      <div class="flex flex-col items-center gap-4 py-10 text-center">
-        <span class="flex size-12 items-center justify-center rounded-xl bg-elevated text-dimmed">
+      <div class="flex flex-col items-center gap-2.5 py-5 text-center">
+        <span class="flex size-10 items-center justify-center rounded-xl bg-elevated text-dimmed">
           <UIcon
             name="i-lucide-search-x"
-            class="size-6"
+            class="size-5"
           />
         </span>
         <div>

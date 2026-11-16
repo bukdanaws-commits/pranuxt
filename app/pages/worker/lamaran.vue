@@ -49,14 +49,14 @@ const breadcrumbItems = [
 </script>
 
 <template>
-  <div class="space-y-6">
-    <div class="space-y-3">
+  <div class="space-y-4">
+    <div class="space-y-2">
       <AppBreadcrumb :items="breadcrumbItems" />
       <div>
         <h1 class="text-2xl font-extrabold tracking-tight text-highlighted">
           Lamaran Saya
         </h1>
-        <p class="mt-1 text-sm text-muted">
+        <p class="mt-0.5 text-sm text-muted">
           Pantau status lamaran — keputusan akhir tetap dijaga server (state machine database).
         </p>
       </div>
@@ -66,7 +66,7 @@ const breadcrumbItems = [
       <div
         v-for="item in summary"
         :key="item.status"
-        class="rounded-xl border border-default bg-elevated p-4"
+        class="rounded-xl border border-default bg-elevated p-3"
       >
         <p class="text-2xl font-extrabold text-highlighted">
           {{ item.count }}
@@ -76,7 +76,7 @@ const breadcrumbItems = [
           :label="item.label"
           :tone="item.tone"
           size="sm"
-          class="mt-1.5"
+          class="mt-1"
         />
       </div>
     </div>
@@ -113,12 +113,12 @@ const breadcrumbItems = [
 
       <div
         v-else
-        class="flex flex-col items-center gap-3 py-10 text-center"
+        class="flex flex-col items-center gap-2.5 py-5 text-center"
       >
-        <span class="flex size-12 items-center justify-center rounded-xl bg-elevated text-dimmed">
+        <span class="flex size-10 items-center justify-center rounded-xl bg-elevated text-dimmed">
           <UIcon
             name="i-lucide-inbox"
-            class="size-6"
+            class="size-5"
           />
         </span>
         <p class="text-sm text-muted">

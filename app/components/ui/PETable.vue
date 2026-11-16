@@ -49,7 +49,7 @@ const passthroughSlotNames = computed(() => Object.keys(slots).filter(name => na
     </template>
 
     <template #empty>
-      <div class="flex flex-col items-center justify-center gap-2 py-10 text-center">
+      <div class="flex flex-col items-center justify-center gap-2 py-6 text-center">
         <UIcon
           name="i-lucide-inbox"
           class="size-8 text-muted"

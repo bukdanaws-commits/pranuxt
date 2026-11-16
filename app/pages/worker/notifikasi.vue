@@ -41,13 +41,13 @@ function onMarkAll() {
 </script>
 
 <template>
-  <div class="space-y-8">
+  <div class="space-y-4">
     <div class="flex flex-wrap items-end justify-between gap-3">
       <div>
         <h1 class="text-2xl font-extrabold tracking-tight text-highlighted">
           Notifikasi
         </h1>
-        <p class="mt-1 text-sm text-muted">
+        <p class="mt-0.5 text-sm text-muted">
           {{ unreadCount > 0 ? `${unreadCount} notifikasi belum dibaca.` : 'Semua notifikasi sudah dibaca.' }}
         </p>
       </div>
@@ -61,14 +61,14 @@ function onMarkAll() {
       />
     </div>
 
-    <div class="flex flex-col gap-3">
+    <div class="flex flex-col gap-2">
       <div
         v-for="item in notifications"
         :key="item.id"
-        class="flex items-start gap-3 rounded-xl border border-default bg-default p-4 shadow-none"
+        class="flex items-start gap-2.5 rounded-xl border border-default bg-default p-3 shadow-none"
         :class="item.isRead ? '' : 'bg-elevated'"
       >
-        <span class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-neutral-900">
+        <span class="flex size-8 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-neutral-900">
           <UIcon
             :name="notifIcon(item.type)"
             class="size-4"
@@ -94,7 +94,7 @@ function onMarkAll() {
 
       <p
         v-if="notifications.length === 0"
-        class="py-8 text-center text-sm text-muted"
+        class="py-5 text-center text-sm text-muted"
       >
         Belum ada notifikasi.
       </p>

@@ -70,7 +70,7 @@ const moreItems = [
       </div>
 
       <!-- Info lowongan -->
-      <div class="flex min-w-0 flex-1 flex-col gap-3 p-4 sm:p-5">
+      <div class="flex min-w-0 flex-1 flex-col gap-2.5 p-3.5">
         <div class="flex items-start justify-between gap-3">
           <div class="min-w-0">
             <h3 class="truncate text-base font-bold text-highlighted">
@@ -95,7 +95,7 @@ const moreItems = [
           </span>
         </div>
 
-        <div class="space-y-1.5 text-sm">
+        <div class="space-y-1 text-sm">
           <p class="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-default">
             <UIcon
               name="i-lucide-building-2"
@@ -128,7 +128,7 @@ const moreItems = [
           </p>
         </div>
 
-        <div class="flex gap-8">
+        <div class="flex gap-6">
           <div>
             <p class="text-[11px] text-muted">
               Upah harian
@@ -167,9 +167,9 @@ const moreItems = [
       </div>
 
       <!-- Panel total potensi upah -->
-      <div class="border-t border-default p-4 sm:w-56 sm:border-l sm:border-t-0 sm:p-5">
+      <div class="border-t border-default p-3.5 sm:w-56 sm:border-l sm:border-t-0">
         <div
-          class="flex h-full flex-col gap-1 rounded-xl p-4"
+          class="flex h-full flex-col gap-1 rounded-xl p-3"
           :class="job.eligible ? 'bg-success-50' : 'bg-elevated'"
         >
           <p
@@ -188,7 +188,7 @@ const moreItems = [
             {{ formatRupiah(job.wage) }} × {{ job.durationDays }} hari
           </p>
 
-          <div class="mt-auto flex flex-col gap-2 pt-3">
+          <div class="mt-auto flex flex-col gap-2 pt-2">
             <template v-if="job.eligible">
               <PEButton
                 label="Lihat Detail"

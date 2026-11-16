@@ -38,7 +38,7 @@ const emit = defineEmits<{
       />
     </div>
 
-    <div class="mt-4 space-y-2.5 text-sm">
+    <div class="mt-3 space-y-2 text-sm">
       <p class="flex items-center gap-2 text-default">
         <UIcon
           name="i-lucide-map-pin"
@@ -83,7 +83,7 @@ const emit = defineEmits<{
       </p>
     </div>
 
-    <div class="mt-5 flex gap-2">
+    <div class="mt-3 flex gap-2">
       <PEButton
         label="Lihat Detail"
         :variant="job.status === 'OPEN' && job.mechanism === 'APPLICATION' ? 'outline' : 'solid'"

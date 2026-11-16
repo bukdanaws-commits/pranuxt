@@ -78,7 +78,7 @@ function notifIcon(type: string): string {
 </script>
 
 <template>
-  <div class="space-y-8">
+  <div class="space-y-4">
     <!-- Sapaan -->
     <div>
       <h1 class="text-2xl font-extrabold tracking-tight text-highlighted">
@@ -90,11 +90,11 @@ function notifIcon(type: string): string {
     </div>
 
     <!-- Statistik -->
-    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+    <div class="grid gap-2.5 sm:grid-cols-2 xl:grid-cols-4">
       <div
         v-for="stat in stats"
         :key="stat.label"
-        class="rounded-xl border border-default bg-default p-5 shadow-none"
+        class="rounded-xl border border-default bg-default p-3.5 shadow-none"
       >
         <div class="flex items-center gap-2.5">
           <span class="flex size-8 items-center justify-center rounded-lg bg-brand-100 text-neutral-900">
@@ -107,10 +107,10 @@ function notifIcon(type: string): string {
             {{ stat.label }}
           </p>
         </div>
-        <p class="mt-3 text-3xl font-extrabold tracking-tight text-highlighted">
+        <p class="mt-2 text-2xl font-extrabold tracking-tight text-highlighted">
           {{ stat.value }}
         </p>
-        <p class="mt-1 text-xs text-dimmed">
+        <p class="mt-0.5 text-xs text-dimmed">
           {{ stat.description }}
         </p>
       </div>
@@ -120,7 +120,7 @@ function notifIcon(type: string): string {
     <PECard title="Penugasan terdekat">
       <div
         v-if="nearestAssignment"
-        class="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-default bg-elevated p-4"
+        class="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-default bg-elevated p-3"
       >
         <div class="min-w-0">
           <p class="text-sm font-bold text-highlighted">
@@ -139,12 +139,12 @@ function notifIcon(type: string): string {
 
       <div
         v-else
-        class="flex flex-col items-center gap-3 py-8 text-center"
+        class="flex flex-col items-center gap-2 py-5 text-center"
       >
-        <span class="flex size-12 items-center justify-center rounded-2xl bg-brand-100 text-neutral-900">
+        <span class="flex size-10 items-center justify-center rounded-2xl bg-brand-100 text-neutral-900">
           <UIcon
             name="i-lucide-calendar-x"
-            class="size-6"
+            class="size-5"
           />
         </span>
         <div class="space-y-1">
@@ -182,7 +182,7 @@ function notifIcon(type: string): string {
         </NuxtLink>
       </div>
 
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-2.5">
         <WorkerFeaturedJobCard
           v-for="job in featuredJobs"
           :key="job.id"
@@ -199,14 +199,14 @@ function notifIcon(type: string): string {
         Notifikasi terbaru
       </h2>
 
-      <div class="flex flex-col gap-3">
+      <div class="flex flex-col gap-2">
         <NuxtLink
           v-for="item in latestNotifications"
           :key="item.id"
           to="/worker/notifikasi"
-          class="flex items-start gap-3 rounded-xl border border-default bg-default p-4 shadow-none transition-colors hover:bg-elevated"
+          class="flex items-start gap-2.5 rounded-xl border border-default bg-default p-3 shadow-none transition-colors hover:bg-elevated"
         >
-          <span class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-neutral-900">
+          <span class="flex size-8 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-neutral-900">
             <UIcon
               :name="notifIcon(item.type)"
               class="size-4"

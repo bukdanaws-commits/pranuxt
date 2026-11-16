@@ -17,12 +17,12 @@ defineProps<{
   >
     <ul
       v-if="skills.length > 0"
-      class="space-y-3"
+      class="space-y-2"
     >
       <li
         v-for="skill in skills"
         :key="skill.id"
-        class="flex items-center justify-between gap-3"
+        class="flex items-center justify-between gap-2"
       >
         <div class="flex min-w-0 items-center gap-2.5">
           <span

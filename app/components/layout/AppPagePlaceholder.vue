@@ -23,7 +23,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <div class="space-y-6">
+  <div class="space-y-4">
     <AppBreadcrumb
       :items="[
         { label: 'Beranda', icon: 'i-lucide-home', to: '/' },
@@ -32,7 +32,7 @@ withDefaults(defineProps<Props>(), {
     />
 
     <PECard>
-      <div class="flex flex-col items-center gap-4 py-12 text-center">
+      <div class="flex flex-col items-center gap-2.5 py-6 text-center">
         <span class="flex size-14 items-center justify-center rounded-2xl bg-brand-100 text-neutral-900">
           <UIcon
             :name="icon"

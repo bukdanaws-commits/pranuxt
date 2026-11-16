@@ -22,7 +22,7 @@ const STAT_ITEMS = [
 
 <template>
   <PECard>
-    <div class="flex flex-col gap-5 sm:flex-row sm:items-start">
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-start">
       <PEAvatar
         :alt="profile.fullName"
         size="xl"
@@ -75,20 +75,20 @@ const STAT_ITEMS = [
       />
     </div>
 
-    <div class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+    <div class="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
       <div
         v-for="stat in STAT_ITEMS"
         :key="stat.key"
-        class="flex items-center gap-3 rounded-xl border border-default bg-elevated p-4"
+        class="flex items-center gap-2.5 rounded-xl border border-default bg-elevated p-3"
       >
-        <span class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand-100 text-neutral-900">
+        <span class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand-100 text-neutral-900">
           <UIcon
             :name="stat.icon"
-            class="size-5"
+            class="size-4"
           />
         </span>
         <div>
-          <p class="text-lg font-bold text-highlighted">
+          <p class="text-base font-bold text-highlighted">
             {{ profile.stats[stat.key] }}
           </p>
           <p class="text-xs text-muted">

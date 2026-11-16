@@ -27,6 +27,21 @@ export default defineAppConfig({
     card: {
       slots: {
         root: 'rounded-xl border border-default shadow-none',
+        // Desain kompak: padding default card (p-4 sm:p-6) dirapatkan ke 14/12 px.
+        // Suffix "!" penting karena ui config digabung (concatenation) dengan
+        // tema default tv() — important memenangkan cascade di semua breakpoint.
+        header: 'px-3.5! py-3!',
+        body: 'p-3.5!',
+        footer: 'px-3.5! py-3!',
+      },
+    },
+
+    modal: {
+      slots: {
+        // Modal ikut kompak: header tanpa min-height 4rem bawaan.
+        header: 'px-4! py-3! min-h-0!',
+        body: 'p-4!',
+        footer: 'px-4! py-3!',
       },
     },
   },

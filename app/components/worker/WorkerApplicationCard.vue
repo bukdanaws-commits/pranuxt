@@ -23,7 +23,7 @@ const canWithdraw = computed(() =>
 </script>
 
 <template>
-  <div class="flex flex-col gap-3 border-b border-muted py-4 last:border-b-0 sm:flex-row sm:items-center sm:justify-between">
+  <div class="flex flex-col gap-2 border-b border-muted py-3 last:border-b-0 sm:flex-row sm:items-center sm:justify-between">
     <div class="min-w-0">
       <p class="truncate text-sm font-semibold text-highlighted">
         {{ application.jobTitle }}
