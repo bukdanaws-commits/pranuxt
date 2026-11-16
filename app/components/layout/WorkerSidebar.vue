@@ -3,7 +3,11 @@
  * WorkerSidebar — navigasi kiri gelap dashboard Worker (desain v2).
  *
  * Struktur bergrup (Utama / Penghasilan / Kompetensi / Akun) sesuai desain;
- * item aktif = pill kuning brand. Badge "9+" pada Notifikasi dan chip
+ * item aktif = BAND kuning full-bleed — menyentuh tepi kiri-kanan sidebar
+ * tanpa inset (keputusan owner: "kuning full, tanpa gap"), radius daun tetap
+ * dipertahankan sehingga ada notch kecil di sudut (disetujui owner).
+ * Menu rapat: tinggi baris 36 px (padding vertikal total 16 px), gap antar
+ * item 0, jarak antar grup 12 px. Badge "9+" pada Notifikasi dan chip
  * "Terverifikasi" pada Verifikasi mengikuti state useWorkerData.
  *
  * Komponen dipakai di layout worker (desktop fixed) dan di dalam USlideover
@@ -32,7 +36,10 @@ function isItemActive(to: string): boolean {
   return route.path === to
 }
 
-const itemBaseClass = 'flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors'
+// Menu rapat (keputusan owner): tinggi baris 36 px = text-sm (20 px) +
+// py-2 (16 px total vertikal), gap antar item 0 — daftar terasa satu blok
+// padat. Radius daun tetap agar bentuk band aktif konsisten dengan platform.
+const itemBaseClass = 'flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors'
 const itemIdleClass = 'text-neutral-300 hover:bg-neutral-800 hover:text-white'
 const itemActiveClass = 'bg-brand-400 text-neutral-900 font-semibold hover:bg-brand-400 hover:text-neutral-900'
 </script>
@@ -81,18 +88,18 @@ const itemActiveClass = 'bg-brand-400 text-neutral-900 font-semibold hover:bg-br
 
     <!-- Menu bergrup -->
     <nav
-      class="flex-1 overflow-y-auto px-4 pb-8 pt-2 pe-scrollable"
+      class="flex-1 overflow-y-auto pb-4 pt-1 pe-scrollable"
       aria-label="Navigasi Worker"
     >
       <div
         v-for="section in WORKER_NAV_SECTIONS"
         :key="section.label"
-        class="mt-4"
+        class="mt-3"
       >
-        <p class="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-neutral-500">
+        <p class="px-3 pb-1 text-[10px] font-bold uppercase tracking-widest text-neutral-500">
           {{ section.label }}
         </p>
-        <div class="flex flex-col gap-0.5">
+        <div class="flex flex-col">
           <NuxtLink
             v-for="item in section.items"
             :key="item.to"
