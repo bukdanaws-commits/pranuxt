@@ -1,0 +1,51 @@
+/**
+ * PEKERJA EVENT — Utilities khusus proyek.
+ * Hanya berisi pola berulang yang tidak tercakup Tailwind/Nuxt UI.
+ */
+
+/* Area konten yang bisa discroll dengan scrollbar rapi (tabel/list panjang) */
+.pe-scrollable {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-400) transparent;
+}
+
+.pe-scrollable::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.pe-scrollable::-webkit-scrollbar-thumb {
+  background: var(--color-brand-400);
+  border-radius: 9999px;
+}
+
+.pe-scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Aksen brand: garis bawah kuning untuk item navigasi aktif */
+.pe-nav-active {
+  color: var(--color-neutral-900);
+  font-weight: 700;
+  box-shadow: inset 0 -0.5rem 0 -0.3rem var(--pe-brand-yellow);
+}
+
+/* Latar halaman dashboard mengikuti token background */
+.pe-page {
+  background: var(--pe-page-background);
+}
+
+/* Bagian hero gelap — brand black dari token, bukan warna mentah */
+.pe-hero {
+  background: var(--pe-brand-black);
+}
+
+/* Aksen tipografi kuning brand pada teks highlight */
+.pe-text-brand {
+  color: var(--pe-brand-yellow);
+}
+
+::selection {
+  background: var(--color-brand-300);
+  color: var(--color-neutral-900);
+}

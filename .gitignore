@@ -1,2 +1,32 @@
+# skill lokal (dokumen standar proyek)
 skills/
+
+# dependencies
 node_modules/
+
+# Nuxt
+.nuxt/
+.output/
+.data/
+dist/
+
+# env & kredensial (jangan pernah commit)
+.env
+.env.*
+!.env.example
+
+# berkas runtime sandbox
+dev.log
+*.log
+.zscripts/dev.log
+
+# prisma legacy (dibekukan — hanya referensi historis)
+prisma/
+db/
+
+# folder kerja sandbox
+upload/
+download/
+
+# sistem
+.DS_Store

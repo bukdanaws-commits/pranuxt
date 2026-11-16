@@ -1,0 +1,14 @@
+/**
+ * PEKERJA EVENT — stylesheet utama.
+ * Urutan import mengikuti konvensi Nuxt UI v4 (Tailwind CSS v4 CSS-first).
+ */
+@import "tailwindcss";
+@import "@nuxt/ui";
+@import "./tokens.css";
+@import "./utilities.css";
+
+body {
+  font-family: var(--font-sans);
+  background: var(--pe-page-background);
+  color: var(--color-neutral-900);
+}
